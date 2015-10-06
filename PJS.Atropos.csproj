@@ -68,6 +68,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets.json" />
+    <Content Include="Content\icons\android-chrome-144x144.png" />
+    <Content Include="Content\icons\android-chrome-192x192.png" />
+    <Content Include="Content\icons\android-chrome-36x36.png" />
+    <Content Include="Content\icons\android-chrome-48x48.png" />
+    <Content Include="Content\icons\android-chrome-72x72.png" />
+    <Content Include="Content\icons\android-chrome-96x96.png" />
+    <Content Include="Content\icons\apple-touch-icon-114x114.png" />
+    <Content Include="Content\icons\apple-touch-icon-120x120.png" />
+    <Content Include="Content\icons\apple-touch-icon-144x144.png" />
+    <Content Include="Content\icons\apple-touch-icon-152x152.png" />
+    <Content Include="Content\icons\apple-touch-icon-180x180.png" />
+    <Content Include="Content\icons\apple-touch-icon-57x57.png" />
+    <Content Include="Content\icons\apple-touch-icon-60x60.png" />
+    <Content Include="Content\icons\apple-touch-icon-72x72.png" />
+    <Content Include="Content\icons\apple-touch-icon-76x76.png" />
+    <Content Include="Content\icons\apple-touch-icon-precomposed.png" />
+    <Content Include="Content\icons\apple-touch-icon.png" />
+    <Content Include="Content\icons\browserconfig.xml" />
+    <Content Include="Content\icons\favicon-16x16.png" />
+    <Content Include="Content\icons\favicon-32x32.png" />
+    <Content Include="Content\icons\favicon-96x96.png" />
+    <Content Include="Content\icons\favicon.ico" />
+    <Content Include="Content\icons\mstile-144x144.png" />
+    <Content Include="Content\icons\mstile-150x150.png" />
+    <Content Include="Content\icons\mstile-310x150.png" />
+    <Content Include="Content\icons\mstile-310x310.png" />
+    <Content Include="Content\icons\mstile-70x70.png" />
+    <Content Include="Content\logo.png" />
     <Content Include="Content\patterns\img1.jpg" />
     <Content Include="Content\patterns\img2.jpg" />
     <Content Include="Content\patterns\img3.jpg" />
@@ -227,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Document.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\icons\manifest.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
