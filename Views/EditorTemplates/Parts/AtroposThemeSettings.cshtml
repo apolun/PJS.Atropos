@@ -1,0 +1,135 @@
+﻿@model PJS.Atropos.Models.AtroposThemeSettingsPart
+
+@{
+    List<SelectListItem> skins = new List<SelectListItem>();
+    skins.Add(new SelectListItem { Text = "Light", Value = "light" });
+    skins.Add(new SelectListItem { Text = "Dark", Value = "dark" });
+
+    List<SelectListItem> layoutStyles = new List<SelectListItem>();
+    layoutStyles.Add(new SelectListItem { Text = "Boxed", Value = "boxed" });
+    layoutStyles.Add(new SelectListItem { Text = "Wide", Value = "wide" });
+
+    List<SelectListItem> headerStyles = new List<SelectListItem>();
+    headerStyles.Add(new SelectListItem { Text = "Style 1", Value = "1" });
+    headerStyles.Add(new SelectListItem { Text = "Style 2", Value = "2" });
+    headerStyles.Add(new SelectListItem { Text = "Style 3", Value = "3" });
+    headerStyles.Add(new SelectListItem { Text = "Style 4", Value = "4" });
+
+    List<SelectListItem> blogStyles = new List<SelectListItem>();
+    blogStyles.Add(new SelectListItem { Text = "Standard", Value = "standard" });
+    blogStyles.Add(new SelectListItem { Text = "Timeline", Value = "timeline" });
+    blogStyles.Add(new SelectListItem { Text = "Masonry", Value = "masonry" });
+}
+
+@using (Script.Foot()) {
+    <script type="text/javascript">
+        $(function () {
+            $('.colorContainer.@Model.Color').addClass('active');
+
+            $('.colorContainer').click(function () {
+                var color = $(this).data("color");
+                $('#AtroposThemeSettings_Color').val(color);
+                $('.colorContainer').removeClass('active');
+                $('.colorContainer.' + color).addClass('active');
+            });
+
+            if ('@Model.LayoutStyle' == 'boxed') {
+                $('#backgroundContainer').toggle(true);
+            }
+
+            $('#AtroposThemeSettings_LayoutStyle').change(function () {
+                if ($(this).val() == 'boxed') {
+                    $('#backgroundContainer').toggle(true);
+                }
+                else {
+                    $('#backgroundContainer').toggle(false);
+                }
+            });
+
+            $('.backgroundContainer.@Model.Background').addClass('active');
+
+            $('.backgroundContainer img').click(function () {
+                var background = $(this).data("background");
+                $('#AtroposThemeSettings_Background').val(background);
+                $('.backgroundContainer').removeClass('active');
+                $('.' + background).addClass('active');
+            });
+        });
+    </script>
+}
+
+<style type="text/css">
+    .colorContainer { border: 3px solid #fff; width: 100px; height: 100px; display: inline-block; }
+        .colorContainer:hover { border: 3px solid #000000; cursor: pointer; }
+        .colorContainer.active { border: 3px solid #000000; }
+        .colorContainer.orange { background-color: #F07057; }
+        .colorContainer.red { background-color: #F15757; }
+        .colorContainer.pink { background-color: #F73F69; }
+        .colorContainer.yellow { background-color: #EAA824; }
+        .colorContainer.darkgreen { background-color: #9DB667; }
+        .colorContainer.green { background-color: #A0CE4D; }
+        .colorContainer.darkblue { background-color: #1980B6; }
+        .colorContainer.blue { background-color: #66B7E2; }
+        .colorContainer.brown { background-color: #AB8B64; }
+        .colorContainer.lightgrey { background-color: #9E9E9E; }
+    .backgroundContainer { padding: 5px; border: 3px solid #fff; width: 30px; display: inline-block; }
+        .backgroundContainer:hover { border: 3px solid #000000; cursor: pointer; }
+        .backgroundContainer.active { border: 3px solid #000000; }
+        .backgroundContainer img { display: block; max-width: 100%; height: auto; }
+</style>
+
+<fieldset>
+    <legend>Select a Color</legend>
+    <div style="width: 100%">
+        <div class="colorContainer orange" data-color="orange"></div>
+        <div class="colorContainer red" data-color="red"></div>
+        <div class="colorContainer pink" data-color="pink"></div>
+        <div class="colorContainer yellow" data-color="yellow"></div>
+        <div class="colorContainer darkgreen" data-color="darkgreen"></div>
+        <div class="colorContainer green" data-color="green"></div>
+        <div class="colorContainer darkblue" data-color="darkblue"></div>
+        <div class="colorContainer blue" data-color="blue"></div>
+        <div class="colorContainer brown" data-color="brown"></div>
+        <div class="colorContainer lightgrey" data-color="lightgrey"></div>
+    </div>
+    @Html.HiddenFor(x => x.Color)
+</fieldset>
+<fieldset>
+    <legend>Select a Skin</legend>
+    @Html.DropDownListFor(m => m.Skin, skins.AsEnumerable())
+</fieldset>
+<fieldset>
+    <legend>Select a Layout Style</legend>
+    @Html.DropDownListFor(m => m.LayoutStyle, layoutStyles.AsEnumerable())
+</fieldset>
+<fieldset id="backgroundContainer" style="display: none;">
+    <legend>Select a Background</legend>
+    <span class="hint">@T("(Boxed Layout Only)")</span>
+    <div style="width: 100%">
+        @{
+            var backgroundPath = Href("~/Themes/PJS.Atropos/Content/patterns");
+            var folder = Request.MapPath(backgroundPath);
+            var backgroundPattern = "*";
+            var backgroundFiles = Directory.EnumerateFiles(folder, backgroundPattern, SearchOption.TopDirectoryOnly);
+            foreach (var file in backgroundFiles.OrderBy(x => x)) {
+                var start = file.IndexOf(folder) + folder.Length + 1;
+                var len = file.LastIndexOf(".") - start;
+                var background = file.Substring(start, len);
+                var filename = file.Substring(start, file.Length - start);
+                var backgroundImg = backgroundPath + "/" + filename;
+                <div class="backgroundContainer @background">
+                    <img data-background="@background" src="@backgroundImg">
+                </div>
+            }
+        }
+    </div>
+    @Html.HiddenFor(x => x.Background)
+</fieldset>
+<fieldset>
+    <legend>Select a Header Style</legend>
+    @Html.DropDownListFor(m => m.HeaderStyle, headerStyles.AsEnumerable())
+</fieldset>
+<fieldset>
+    <legend>Select a Blog Style</legend>
+    @Html.DropDownListFor(m => m.BlogStyle, blogStyles.AsEnumerable())
+</fieldset>
