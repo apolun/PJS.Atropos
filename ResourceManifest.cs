@@ -20,10 +20,11 @@ namespace PJS.Atropos {
             manifest.DefineScript("Backstretch").SetUrl("backstretch-2.0.4/jquery.backstretch.min.js").SetVersion("2.0.4").SetDependencies("jQuery");
             manifest.DefineScript("Superslides").SetUrl("superslides-0.6.3/jquery.superslides.min.js", "superslides-0.6.3/jquery.superslides.js").SetVersion("0.6.3").SetDependencies("jQuery");
             manifest.DefineScript("Media-Element").SetUrl("media-element-2.18.1/mediaelement-and-player.min.js", "media-element-2.18.1/mediaelement-and-player.js").SetVersion("2.18.1").SetDependencies("jQuery");
-            manifest.DefineScript("Revslider").SetUrl("revslider-5.0.8.5/jquery.themepunch.revolution.min.js").SetVersion("5.0.8.5").SetDependencies("jQuery");
-            manifest.DefineScript("Revslider-Tools").SetUrl("revslider-5.0.8.5/jquery.themepunch.tools.min.js").SetVersion("5.0.8.5").SetDependencies("jQuery");
-            manifest.DefineScript("Slider-Revolution").SetUrl("revslider-5.0.8.5/slider_revolution.js").SetDependencies("jQuery");
-            manifest.DefineScript("Atropos").SetUrl("scripts.js").SetVersion("1.7");
+            manifest.DefineScript("Revslider").SetUrl("revslider-4.6.4/jquery.themepunch.revolution.min.js").SetVersion("4.6.4").SetDependencies("jQuery");
+            manifest.DefineScript("Revslider-Tools").SetUrl("revslider-4.6.4/jquery.themepunch.tools.min.js").SetVersion("4.6.4").SetDependencies("jQuery");
+            manifest.DefineScript("Slider-Revolution").SetUrl("revslider-4.6.4/slider_revolution.js").SetDependencies("jQuery");
+            manifest.DefineScript("Atropos").SetUrl("scripts.js").SetVersion("1.7").SetDependencies("jQuery");
+            manifest.DefineScript("Custom").SetUrl("custom.js").SetDependencies("jQuery");
 
             // CORE CSS
             manifest.DefineStyle("Bootstrap").SetUrl("bootstrap-3.3.5/css/bootstrap.min.css", "bootstrap-3.3.5/css/bootstrap.css").SetVersion("3.3.5");
@@ -36,7 +37,7 @@ namespace PJS.Atropos {
             manifest.DefineStyle("Superslides").SetUrl("superslides-0.6.3/superslides.css").SetVersion("0.6.3");
 
             // REVOLUTION SLIDER
-            manifest.DefineStyle("Revslider").SetUrl("revslider-5.0.8.5/css/settings.css").SetVersion("5.0.8.5");
+            manifest.DefineStyle("Revslider").SetUrl("revslider-4.6.4/css/settings.css").SetVersion("4.6.4");
 
             // THEME CSS
             manifest.DefineStyle("Essentials").SetUrl("essentials.css");

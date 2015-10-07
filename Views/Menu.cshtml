@@ -1,0 +1,13 @@
+﻿@{
+    // Model is Model.Menu from the layout (Layout.Menu)
+    if (Model.Classes.Contains("menu-main-menu")) {
+        Model.Id = "topMain";
+        Model.Classes.Add("nav nav-pills nav-main scroll-menu");
+    }
+    var tag = Tag(Model, "ul");
+}
+
+@tag.StartElement
+@* see MenuItem shape template *@
+@DisplayChildren(Model)
+@tag.EndElement

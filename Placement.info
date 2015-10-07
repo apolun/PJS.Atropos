@@ -1,17 +1,25 @@
 <Placement>
-  <!-- Customize where the shapes are rendered -->
-
-  <!-- 
-  <Place Parts_Blogs_BlogArchives="Content:before"/>
-  <Place Parts_Blogs_RecentBlogPosts="Content:after"/>
-  <Match ContentType="Blog">
-    <Match DisplayType="Summary">
-      <Place Parts_Blogs_Blog_Description="Content:before"
-             Parts_Blogs_Blog_BlogPostCount="Meta:3"/>
-    </Match>
+  <Match DisplayType="Detail">
+    <Place Parts_Title="/BeforeMain:0"/>
   </Match>
-  <Match Path="/About">
+
+  <Match ContentType="Page">
     <Place Parts_Common_Metadata="-"/>
   </Match>
--->
+
+  <Match ContentType="Blog">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+
+  <Match ContentType="ProjectionPage">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+
+  <Match ContentType="Taxonomy">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+  
+  <Match Path="~/">
+    <Place Parts_Title="-"/>
+  </Match>
 </Placement>

@@ -25,7 +25,7 @@
     Style.Require("Layout");
     Style.Require("Layout-Responsive");
     Style.Include("colors/" + settings.Color + ".css");
-    if (settings.LayoutStyle == "dark") {
+    if (settings.Skin == "dark") {
         Style.Require("Layout-Dark");
     }
 
@@ -47,5 +47,6 @@
     Script.Require("Backstretch");
     Script.Require("Superslides");
     Script.Require("Media-Element");
-    //Script.Require("Atropos");
+    Script.Require("Atropos");
+    Script.Require("Custom");
 }

@@ -59,6 +59,7 @@
 }
 
 <style type="text/css">
+    fieldset { padding-bottom: 20px; }
     .colorContainer { border: 3px solid #fff; width: 100px; height: 100px; display: inline-block; }
         .colorContainer:hover { border: 3px solid #000000; cursor: pointer; }
         .colorContainer.active { border: 3px solid #000000; }
@@ -78,7 +79,7 @@
         .backgroundContainer img { display: block; max-width: 100%; height: auto; }
 </style>
 
-<fieldset>
+<fieldset style="border-bottom: 1px solid #000000;">
     <legend>Select a Color</legend>
     <div style="width: 100%">
         <div class="colorContainer orange" data-color="orange"></div>
@@ -94,15 +95,15 @@
     </div>
     @Html.HiddenFor(x => x.Color)
 </fieldset>
-<fieldset>
+<fieldset style="border-bottom: 1px solid #000000;">
     <legend>Select a Skin</legend>
     @Html.DropDownListFor(m => m.Skin, skins.AsEnumerable())
 </fieldset>
-<fieldset>
+<fieldset style="border-bottom: 1px solid #000000;">
     <legend>Select a Layout Style</legend>
     @Html.DropDownListFor(m => m.LayoutStyle, layoutStyles.AsEnumerable())
 </fieldset>
-<fieldset id="backgroundContainer" style="display: none;">
+<fieldset id="backgroundContainer" style="border-bottom: 1px solid #000000; display: none;">
     <legend>Select a Background</legend>
     <span class="hint">@T("(Boxed Layout Only)")</span>
     <div style="width: 100%">
@@ -118,15 +119,16 @@
                 var filename = file.Substring(start, file.Length - start);
                 var backgroundImg = backgroundPath + "/" + filename;
                 <div class="backgroundContainer @background">
-                    <img data-background="@background" src="@backgroundImg">
+                    <img data-background="@background" src="@backgroundImg" style="width: 30px; height: 30px;">
                 </div>
             }
         }
     </div>
     @Html.HiddenFor(x => x.Background)
 </fieldset>
-<fieldset>
+<fieldset style="border-bottom: 1px solid #000000;">
     <legend>Select a Header Style</legend>
+    <span class="hint">@T("Modify the TopBar shape in the Views folder")</span>
     @Html.DropDownListFor(m => m.HeaderStyle, headerStyles.AsEnumerable())
 </fieldset>
 <fieldset>

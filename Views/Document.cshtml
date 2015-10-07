@@ -14,11 +14,40 @@
     Html.AddPageClassNames("dir-" + (isRtl ? "rtl" : "ltr"));
     Html.AddPageClassNames("theme-" + WorkContext.CurrentTheme.Id);
 
+    var bodyClass = string.Empty;
+
+    if (settings.LayoutStyle == "boxed") {
+        bodyClass = "boxed ";
+        if (settings.Background.StartsWith("pattern")) {
+            bodyClass += settings.Background;
+        }
+        else if (settings.Background != "none") {
+            bodyClass += "transparent";
+        }
+    }
+    else {
+        bodyClass = "transparent";
+    }
+
+    var background = string.Empty;
+
+    if (settings.Background.StartsWith("img")) {
+        background = Url.Content(theme.Location + "/" + theme.Path + "/Content/patterns/" + settings.Background + ".jpg");
+    }
+
     Display.Resources();
 }
 
 <!DOCTYPE html>
-<html lang="@WorkContext.CurrentCulture" class="static @Html.ClassForPage()" dir="@(isRtl?"rtl":"ltr")">
+<!--[if IE 8]>
+    <html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage() ie ie8" dir="@(isRtl?"rtl":"ltr")">
+<![endif]-->
+<!--[if IE 9]>
+    <html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage() ie ie9" dir="@(isRtl?"rtl":"ltr")">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage()" dir="@(isRtl?"rtl":"ltr")">
+<!--<![endif]-->
 <head>
     <link rel="apple-touch-icon" sizes="57x57" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-57x57.png")">
     <link rel="apple-touch-icon" sizes="60x60" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-60x60.png")">
@@ -45,8 +74,7 @@
     <script>(function(d){d.className="dyn"+d.className.substring(6,d.className.length);})(document.documentElement);</script>
     <script>window.isRTL = @(isRtl.ToString().ToLowerInvariant());</script>
 </head>
-<body>
-    @* Layout (template) is in the Body zone @ the default position (nothing, zero, zilch) *@
+<body class="@bodyClass" data-background="@background">
     @Display(Model.Body)
     @Display(Model.Tail)
 </body>

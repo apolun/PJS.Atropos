@@ -1,0 +1,26 @@
+﻿@using Orchard.ContentManagement;
+@using PJS.Atropos.Models;
+
+@{
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+}
+
+<header id="topHead" class="fixed @(settings.HeaderStyle == "4" ? "color" : string.Empty)">
+    <div class="container">
+        <i class="fa fa-phone"></i> 800-555-1234 •
+        <a href="mailto:mail@yourdomain.com">mail@yourdomain.com</a>
+
+        <div class="pull-right socials">
+            <a href="#" class="pull-left social fa fa-facebook"></a>
+            <a href="#" class="pull-left social fa fa-twitter"></a>
+            <a href="#" class="pull-left social fa fa-google-plus"></a>
+        </div>
+
+        @if (settings.HeaderStyle == "3") {
+            <div class="pull-right nav">
+                <a href="#"><i class="fa fa-angle-right"></i> About Us</a>
+                <a href="#"><i class="fa fa-angle-right"></i> Contact Us</a>
+            </div>
+        }
+    </div>
+</header>

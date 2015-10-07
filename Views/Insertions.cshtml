@@ -1,0 +1,21 @@
+﻿@using Orchard.ContentManagement;
+@using PJS.Atropos.Models;
+
+@{
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+    
+    // the following code only runs if the site is live
+    if (!String.IsNullOrEmpty(WorkContext.CurrentSite.BaseUrl) && WorkContext.HttpContext.Request.Url.Host == new Uri(WorkContext.CurrentSite.BaseUrl).Host) {
+    }
+
+    // the following code only runs for the homepage
+    if (WorkContext.HttpContext.Request.RawUrl == Href("~/") || WorkContext.HttpContext.Request.RawUrl == Href("~//")) {
+        WorkContext.Layout.Featured.Add(New.Slider(), "0");
+    }
+
+    if (settings.HeaderStyle != "1") {
+        WorkContext.Layout.Header.Add(New.TopBar(), "5");
+    }
+
+    WorkContext.Layout.Footer.Add(New.BadgeOfHonor(), "5");
+}

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets.json" />
+    <Content Include="Content\header_shadow.png" />
     <Content Include="Content\icons\android-chrome-144x144.png" />
     <Content Include="Content\icons\android-chrome-192x192.png" />
     <Content Include="Content\icons\android-chrome-36x36.png" />
@@ -114,6 +115,7 @@
     <Content Include="Scripts\backstretch-2.0.4\jquery.backstretch.min.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.min.js" />
+    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\isotope-2.2.2\isotope.pkgd.js" />
     <Content Include="Scripts\isotope-2.2.2\isotope.pkgd.min.js" />
     <Content Include="Scripts\jquery-appear\jquery.appear.js" />
@@ -132,9 +134,9 @@
     <Content Include="Scripts\modernizr-2.7.1\modernizr.min.js" />
     <Content Include="Scripts\owl-carousel-1.3.3\owl.carousel.js" />
     <Content Include="Scripts\owl-carousel-1.3.3\owl.carousel.min.js" />
-    <Content Include="Scripts\revslider-5.0.8.5\jquery.themepunch.revolution.min.js" />
-    <Content Include="Scripts\revslider-5.0.8.5\jquery.themepunch.tools.min.js" />
-    <Content Include="Scripts\revslider-5.0.8.5\slider_revolution.js" />
+    <Content Include="Scripts\revslider-4.6.4\jquery.themepunch.revolution.min.js" />
+    <Content Include="Scripts\revslider-4.6.4\jquery.themepunch.tools.min.js" />
+    <Content Include="Scripts\revslider-4.6.4\slider_revolution.js" />
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\stellar-0.6.2\jquery.stellar.js" />
     <Content Include="Scripts\stellar-0.6.2\jquery.stellar.min.js" />
@@ -190,8 +192,40 @@
     <Content Include="Styles\owl-carousel-1.3.3\owl.carousel.css" />
     <Content Include="Styles\owl-carousel-1.3.3\owl.theme.css" />
     <Content Include="Styles\owl-carousel-1.3.3\owl.transitions.css" />
-    <Content Include="Styles\revslider-5.0.8.5\css\settings.css" />
-    <Content Include="Styles\revslider-5.0.8.5\fonts\revicons\revicons.svg" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrowleft.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrowright.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_left.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_left2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_right.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_right2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\boxed_bgtile.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullet.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullets.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullets2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullet_boxed.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\coloredbg.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile_3x3.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile_3x3_white.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile_white.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\large_left.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\large_right.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\loader.gif" />
+    <Content Include="Styles\revslider-4.6.4\assets\navigdots.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\navigdots_bgtile.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\shadow1.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\shadow2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\shadow3.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_left.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_left_boxed.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_right.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_right_boxed.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\timer.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\transparent.png" />
+    <Content Include="Styles\revslider-4.6.4\css\settings.css" />
+    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.svg" />
+    <Content Include="Styles\revslider-4.6.4\images\gradient\g30.png" />
+    <Content Include="Styles\revslider-4.6.4\images\gradient\g40.png" />
     <Content Include="Styles\superslides-0.6.3\superslides.css" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Web.config" />
@@ -249,15 +283,44 @@
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Styles\revslider-5.0.8.5\fonts\revicons\revicons.eot" />
-    <Content Include="Styles\revslider-5.0.8.5\fonts\revicons\revicons.ttf" />
-    <Content Include="Styles\revslider-5.0.8.5\fonts\revicons\revicons.woff" />
+    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.eot" />
+    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.ttf" />
+    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.woff" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Document.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\icons\manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Elements\Column.cshtml" />
+    <Content Include="Views\Elements\Grid.cshtml" />
+    <Content Include="Views\Elements\Row.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Insertions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TopBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MenuItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MenuItemLinkdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Slider.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

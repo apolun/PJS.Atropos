@@ -211,7 +211,7 @@ header#topHead a.social {
 
 
 header#topHead {
-	background-color:#111;
+	background-color:#111 !important;
 	border-bottom:#333 1px solid;
 }
 header#topHead  .dropdown-menu {
