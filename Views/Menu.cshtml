@@ -10,4 +10,7 @@
 @tag.StartElement
 @* see MenuItem shape template *@
 @DisplayChildren(Model)
+@if (Model.Classes.Contains("menu-main-menu")) {
+    @Display.NavSearch()
+}
 @tag.EndElement

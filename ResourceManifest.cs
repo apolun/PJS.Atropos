@@ -44,6 +44,7 @@ namespace PJS.Atropos {
             manifest.DefineStyle("Layout").SetUrl("layout.css");
             manifest.DefineStyle("Layout-Dark").SetUrl("layout-dark.css");
             manifest.DefineStyle("Layout-Responsive").SetUrl("layout-responsive.css");
+            manifest.DefineStyle("Atropos-Custom").SetUrl("custom.css");
         }
     }
 }

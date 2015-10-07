@@ -1,0 +1,49 @@
+﻿@using Orchard.ContentManagement;
+@using PJS.Atropos.Models;
+
+@{
+    var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
+}
+
+<div class="pull-right nav signin-dd">
+    @if (WorkContext.CurrentUser != null) {
+        <a id="quick_sign_in" href="@Url.Action("LogOff", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl })"><span class="hidden-xs"><i class="fa fa-users"></i> @T("Sign Out")</span></a>
+        <a id="quick_sign_in" href="@Url.Action("ChangePassword", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl })"><span class="hidden-xs"><i class="fa fa-lock"></i> @T("Change Password")</span></a>
+    }
+    else {
+        <a id="quick_sign_in" href="#" data-toggle="dropdown"><span class="hidden-xs"><i class="fa fa-users"></i> @T("Sign In")</span></a>
+        <div class="dropdown-menu" role="menu" aria-labelledby="quick_sign_in">
+            <h4>@T("Sign In")</h4>
+            @using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = (Request.QueryString["ReturnUrl"] ?? Request.RawUrl) }))) {
+                <div class="form-group">
+                    <!-- email -->
+                    @Html.TextBox("userNameOrEmail", "", new { id = "username-email", @class = "form-control", placeholder = "Username or email" })
+                </div>
+                <div class="input-group">
+                    <!-- password -->
+                    @Html.Password("password", "", new { @class = "form-control", placeholder = "Password" })
+                    <!-- submit button -->
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">@T("Sign In")</button>
+                    </span>
+                </div>
+                <div class="checkbox">
+                    <!-- remember -->
+                    <label>
+                        @Html.CheckBox("rememberMe", new { id = "remember-me" }) @T("Remember me")
+                        @if (enableLostPassword) {
+                            <text>&#8226; @Html.ActionLink(T("Forgot password?").Text, "RequestLostPassword", new { Controller = "Account", Area = "Orchard.Users" })</text>
+                        }
+                    </label>
+                </div>
+            }
+            <hr>
+            @if (userCanRegister) {
+                <p class="bottom-create-account">
+                    @Html.ActionLink(T("Manual create account").Text, "Register", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Request.QueryString["ReturnUrl"] })
+                </p>
+            }
+        </div>
+    }
+</div>

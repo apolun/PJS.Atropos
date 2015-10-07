@@ -97,6 +97,7 @@
     <Content Include="Content\icons\mstile-310x310.png" />
     <Content Include="Content\icons\mstile-70x70.png" />
     <Content Include="Content\logo.png" />
+    <Content Include="Content\logo_dark.png" />
     <Content Include="Content\patterns\img1.jpg" />
     <Content Include="Content\patterns\img2.jpg" />
     <Content Include="Content\patterns\img3.jpg" />
@@ -112,6 +113,11 @@
     <Content Include="Content\patterns\pattern7.png" />
     <Content Include="Content\patterns\pattern8.png" />
     <Content Include="Content\patterns\pattern9.png" />
+    <Content Include="Content\slider\church_parallax.jpg" />
+    <Content Include="Content\slider\desktop_slider_2.png" />
+    <Content Include="Content\slider\slider7.jpg" />
+    <Content Include="Content\slider\sliderbg.jpg" />
+    <Content Include="Content\slider\slider_run.png" />
     <Content Include="Scripts\backstretch-2.0.4\jquery.backstretch.min.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.min.js" />
@@ -159,6 +165,7 @@
     <Content Include="Styles\colors\pink.css" />
     <Content Include="Styles\colors\red.css" />
     <Content Include="Styles\colors\yellow.css" />
+    <Content Include="Styles\custom.css" />
     <Content Include="Styles\essentials.css" />
     <Content Include="Styles\font-awesome-4.4.0\css\font-awesome.css" />
     <Content Include="Styles\font-awesome-4.4.0\css\font-awesome.min.css" />
@@ -223,7 +230,7 @@
     <Content Include="Styles\revslider-4.6.4\assets\timer.png" />
     <Content Include="Styles\revslider-4.6.4\assets\transparent.png" />
     <Content Include="Styles\revslider-4.6.4\css\settings.css" />
-    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.svg" />
+    <Content Include="Styles\revslider-4.6.4\font\revicons.svg" />
     <Content Include="Styles\revslider-4.6.4\images\gradient\g30.png" />
     <Content Include="Styles\revslider-4.6.4\images\gradient\g40.png" />
     <Content Include="Styles\superslides-0.6.3\superslides.css" />
@@ -243,6 +250,14 @@
     <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Search\Orchard.Search.csproj">
+      <Project>{4be4eb01-ac56-4048-924e-2ca77f509aba}</Project>
+      <Name>Orchard.Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Users\Orchard.Users.csproj">
+      <Project>{79aed36e-abd0-4747-93d3-8722b042454b}</Project>
+      <Name>Orchard.Users</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -283,11 +298,6 @@
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.eot" />
-    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.ttf" />
-    <Content Include="Styles\revslider-4.6.4\fonts\revicons\revicons.woff" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Document.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -320,7 +330,47 @@
     <Content Include="Views\MenuItemLinkdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Slider.cshtml" />
+    <Content Include="Views\Slider1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\revslider-4.6.4\font\revicons.eot" />
+    <Content Include="Styles\revslider-4.6.4\font\revicons.ttf" />
+    <Content Include="Styles\revslider-4.6.4\font\revicons.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Title.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BadgeOfHonor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Slider2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NavSearch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NavLogon.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LogOn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Message.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Orchard.Users\Account\AccessDenied.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChallengeEmailFail.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChallengeEmailSent.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChallengeEmailSuccess.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\LostPassword.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\RegistrationPending.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\RequestLostPassword.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

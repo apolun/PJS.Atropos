@@ -8,11 +8,17 @@
     // unwrap last item in breadcrumb
     $('.breadcrumb .active a').contents().unwrap();
 
-    // SIZE PAGE CONTENT TO WINDOW HEIGHT
+    // resize the page content to the window height
     var height = $(window).height();
-    height -= $('#topHead').height(); //top bar
-    height -= $('#topNav').height(); //navigation
     height -= $('footer').height(); //footer
 
-    $('#wrapper').css('min-height', height+99);
+    $('#wrapper').css('min-height', height);
+
+    // resize the main layout when the window size changes
+    $(window).on('resize', function () {
+        var height = $(window).height();
+        height -= $('footer').height(); //footer
+
+        $('#wrapper').css('min-height', height);
+    });
 });
