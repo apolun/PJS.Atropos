@@ -21,47 +21,45 @@
     </div>
 }
 
-<section class="container">
-    <div class="row">
-        <!-- LOGIN -->
-        <div class="col-md-6 col-md-offset-3">
-            <h2>@Html.TitleForPage("Sign In")</h2>
-            @using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "white-row" })) {
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="username-email">@T("Username or email")</label>
-                            @Html.TextBox("userNameOrEmail", "", new { id = "username-email", @class = "form-control", autofocus = "autofocus" })
-                        </div>
+<div class="row">
+    <!-- LOGIN -->
+    <div class="col-md-6 col-md-offset-3">
+        <h2>@Html.TitleForPage("Sign In")</h2>
+        @using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "white-row" })) {
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="username-email">@T("Username or email")</label>
+                        @Html.TextBox("userNameOrEmail", "", new { id = "username-email", @class = "form-control", autofocus = "autofocus" })
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="password">@T("Password")</label>
-                            @Html.Password("password", "", new { @class = "form-control" })
-                        </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="password">@T("Password")</label>
+                        @Html.Password("password", "", new { @class = "form-control" })
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="remember-box checkbox">
-                            <label for="rememberme">
-                                @Html.CheckBox("rememberMe", new { id = "remember-me" }) @("Remember Me")
-                            </label>
-                        </span>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="submit" value="@T("Sign In")" class="btn btn-primary pull-right" data-loading-text="Loading...">
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="remember-box checkbox">
+                        <label for="rememberme">
+                            @Html.CheckBox("rememberMe", new { id = "remember-me" }) @("Remember Me")
+                        </label>
+                    </span>
                 </div>
-                <hr class="half-margins" />
-                <p>
-                    @T("Don't have an account yet?")
-                    @Html.ActionLink(T("Click to create one").Text, "Register", new { ReturnUrl = Request.QueryString["ReturnUrl"] })
-                </p>
-            }
-        </div>
-        <!-- /LOGIN -->
+                <div class="col-md-6">
+                    <input type="submit" value="@T("Sign In")" class="btn btn-primary pull-right" data-loading-text="Loading...">
+                </div>
+            </div>
+            <hr class="half-margins" />
+            <p>
+                @T("Don't have an account yet?")
+                @Html.ActionLink(T("Click to create one").Text, "Register", new { ReturnUrl = Request.QueryString["ReturnUrl"] })
+            </p>
+        }
     </div>
-</section>
+    <!-- /LOGIN -->
+</div>

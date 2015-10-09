@@ -1,0 +1,50 @@
+﻿@using Orchard.ContentManagement
+@using Orchard.MediaLibrary.Fields
+@using Orchard.MediaLibrary.Models
+@using Orchard.Utility.Extensions;
+
+@{
+    var field = (MediaLibraryPickerField)Model.ContentField;
+    string name = field.DisplayName;
+    var contents = field.MediaParts;
+}
+
+<!-- image -->
+@if (contents.Count() > 1) {
+    <div class="owl-carousel text-center controlls-over" data-plugin-options='{"items": 1, "singleItem": true, "navigation": true, "pagination": false, "autoPlay": true, "transitionStyle":"fadeUp"}'>
+        @foreach (var mediapart in contents) {
+            if (mediapart.MimeType.StartsWith("image")) {
+                <div>
+                    <img src="@mediapart.MediaUrl" class="img-responsive" alt="@mediapart.AlternateText" />
+                </div>
+            }
+            else if (mediapart.MimeType.StartsWith("video")) {
+                <!-- vido -->
+                <div class="videoWrapper">
+                    <iframe class="fitvids" src="@mediapart.MediaUrl"></iframe>
+                </div>
+            }
+            else if (mediapart.MimeType == "text/html") {
+                @Html.Raw(mediapart.As<OEmbedPart>()["html"])
+            }
+        }
+    </div>
+}
+else if (contents.Count() == 1) {
+    <figure>
+        @foreach (var mediapart in contents) {
+            if (mediapart.MimeType.StartsWith("image")) {
+                <img src="@mediapart.MediaUrl" class="img-responsive" alt="@mediapart.AlternateText" />
+            }
+            else if (mediapart.MimeType.StartsWith("video")) {
+                <!-- vido -->
+                <div class="videoWrapper">
+                    <iframe class="fitvids" src="@mediapart.MediaUrl"></iframe>
+                </div>
+            }
+            else if (mediapart.MimeType == "text/html") {
+                @Html.Raw(mediapart.As<OEmbedPart>()["html"])
+            }
+        }
+    </figure>
+}

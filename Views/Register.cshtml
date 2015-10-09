@@ -10,52 +10,50 @@
     </div>
 }
 
-<section class="container">
-    <div class="row">
-        <!-- REGISTER -->
-        <div class="col-md-6 col-md-offset-3">
-            <h2>@Html.TitleForPage("Create Account")</h2>
-            @using (Html.BeginFormAntiForgeryPost(Url.Action("Register", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "white-row" })) {
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="username">@T("Username")</label>
-                            @Html.TextBox("username", "", new { @class = "form-control" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="email">@T("E-mail Address")</label>
-                            @Html.TextBox("email", "", new { @class = "form-control" })
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
+<div class="row">
+    <!-- REGISTER -->
+    <div class="col-md-6 col-md-offset-3">
+        <h2>@Html.TitleForPage("Create Account")</h2>
+        @using (Html.BeginFormAntiForgeryPost(Url.Action("Register", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "white-row" })) {
+            <div class="row">
+                <div class="col-md-12">
                     <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="password">@T("Password")</label>
-                            @Html.Password("password", "", new { @class = "form-control" })
-                        </div>
-                        <div class="col-md-6">
-                            <label for="confirmPassword">@T("Re-enter Password")</label>
-                            @Html.Password("confirmPassword", "", new { @class = "form-control" })
-                        </div>
+                        <label for="username">@T("Username")</label>
+                        @Html.TextBox("username", "", new { @class = "form-control" })
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <input type="submit" value="@T("Sign Up")" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="email">@T("E-mail Address")</label>
+                        @Html.TextBox("email", "", new { @class = "form-control" })
                     </div>
                 </div>
-                <hr class="half-margins" />
-                <p>
-                    @T("Already have an account?")
-                    @Html.ActionLink(T("Click to Sign In").ToString(), "LogOn", new { ReturnUrl = (Request.QueryString["ReturnUrl"] ?? Request.RawUrl) }, new { rel = "nofollow" })
-                </p>
-            }
-        </div>
-        <!-- /REGISTER -->
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="password">@T("Password")</label>
+                        @Html.Password("password", "", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6">
+                        <label for="confirmPassword">@T("Re-enter Password")</label>
+                        @Html.Password("confirmPassword", "", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="submit" value="@T("Sign Up")" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
+                </div>
+            </div>
+            <hr class="half-margins" />
+            <p>
+                @T("Already have an account?")
+                @Html.ActionLink(T("Click to Sign In").ToString(), "LogOn", new { ReturnUrl = (Request.QueryString["ReturnUrl"] ?? Request.RawUrl) }, new { rel = "nofollow" })
+            </p>
+        }
     </div>
-</section>
+    <!-- /REGISTER -->
+</div>

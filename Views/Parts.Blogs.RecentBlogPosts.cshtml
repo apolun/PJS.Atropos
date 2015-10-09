@@ -1,0 +1,22 @@
+﻿@using Orchard.ContentManagement;
+
+@{
+    IEnumerable<object> blogPosts = Model.ContentItems.ContentItems;
+}
+
+@if (blogPosts == null || blogPosts.Count() < 1) {
+    <p>@T("No posts.")</p>
+}
+else {
+    <ul class="nav nav-list">
+        @foreach (dynamic post in blogPosts) {
+            ContentItem contentItem = post.ContentItem;
+            string title = post.ContentItem.TitlePart.Title;
+            DateTime date = post.ContentItem.CommonPart.CreatedUtc;
+
+            <li>
+                <a href="@Url.ItemDisplayUrl(contentItem)"><i class="fa fa-sign-out"></i> @title <small>@date</small></a>
+            </li>
+        }
+    </ul>
+}

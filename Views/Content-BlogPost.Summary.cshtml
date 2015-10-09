@@ -23,29 +23,11 @@
         @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
             @Display(Model.Tags)
         }
-        <a href="@Url.ItemDisplayUrl((IContent)blogPost)#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
+        <a href="@Url.ItemDisplayUrl((IContent)blogPost)#comments" class="label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
         <span class="label label-default light">@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMMM d, yyyy")</span>
     </div>
 
-    <!-- image -->
-    @if (imageField != null) {
-        if (imageField.MediaParts.Count() > 1) {
-            <div class="owl-carousel text-center controlls-over" data-plugin-options='{"items": 1, "singleItem": true, "navigation": true, "pagination": false, "autoPlay": true, "transitionStyle":"fadeUp"}'>
-                @foreach (var mediapart in imageField.MediaParts) {
-                    <div>
-                        <img src="@mediapart.MediaUrl" class="img-responsive" alt="@mediapart.AlternateText" />
-                    </div>
-                }
-            </div>
-        }
-        else if (imageField.MediaParts.Count() == 1) {
-            <figure>
-                @foreach (var mediapart in imageField.MediaParts) {
-                    <img src="@mediapart.MediaUrl" class="img-responsive" alt="@mediapart.AlternateText" />
-                }
-            </figure>
-        }
-    }
+    @Display(Model.Media)
     
     <!-- blog short preview -->
     @Display(Model.Summary)

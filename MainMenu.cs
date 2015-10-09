@@ -24,7 +24,7 @@ namespace PJS.Atropos {
                     .Query<MenuPart, MenuPartRecord>()
                     .Where(x => x.MenuId == menu.Id)
                     .List()
-                    .Select(x => Convert.ToInt32(decimal.Parse(x.MenuPosition)))
+                    .Select(x => Convert.ToInt32(x.MenuPosition.Substring(0, 1)))
                     .Max();
 
                 var itemCount = maxPosition + 1;

@@ -1,0 +1,5 @@
+﻿@using Orchard.Tags.Models
+
+@foreach (TagCount tagCount in Model.TagCounts) {
+    @Html.ActionLink(tagCount.TagName, "Search", "Home", new { area = "Orchard.Tags", tagName = tagCount.TagName }, new { @class = "label label-default" })
+}
