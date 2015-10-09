@@ -1,0 +1,10 @@
+﻿@using Orchard.Utility.Extensions;
+
+@{
+    Model.Id = "blog";
+    var tag = Tag(Model, "div");
+}
+
+@tag.StartElement
+    @Display(Model.Content)
+@tag.EndElement

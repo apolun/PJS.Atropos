@@ -1,0 +1,13 @@
+﻿/* validation summary */
+.validation-summary-errors { display: inline-block; }
+    .validation-summary-errors ul { list-style: none; margin: 0; padding: 0; }
+        .validation-summary-errors ul li { display: inline-block; }
+
+/* lists */
+ul.blog-posts, ul.comments, ul.comments ul.media { list-style: none; margin: 0; padding: 0; }
+
+/* comments */
+#comments .comment .comment { margin: 0 }
+
+/* fix image width when image is smaller than container */
+.owl-carousel .img-responsive { width: 100%; }

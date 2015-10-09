@@ -11,7 +11,6 @@
     // resize the page content to the window height
     var height = $(window).height();
     height -= $('footer').height(); //footer
-
     $('#wrapper').css('min-height', height);
 
     // resize the main layout when the window size changes
@@ -21,4 +20,8 @@
 
         $('#wrapper').css('min-height', height);
     });
+
+    // pagination
+    $('#pagination ul').removeClass('pager').addClass('pagination');
+    $('#pager-current').parent('li').addClass('active');
 });

@@ -1,0 +1,85 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.MediaLibrary.Fields
+@using Orchard.Tags.ViewModels
+@using PJS.Atropos.Models;
+
+@{
+    Style.Require("Atropos-Blog");
+    Style.Require("Owl-Carousel");
+    Style.Require("Owl-Theme");
+    Style.Require("Owl-Transitions");
+    Script.Require("Owl-Carousel");
+
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+    var blogPost = Model.ContentItem;
+    var imageField = blogPost.BlogPostPart.BlogPostMedia as MediaLibraryPickerField;
+}
+
+<div id="blog">
+    <!-- article title -->
+    <header class="blog-post">
+        <h1>@blogPost.TitlePart.Title</h1>
+        <small class="fsize13">
+            @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+                @Display(Model.Tags)
+            }
+            <a href="#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
+            <span class="label label-default light">@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMMM d, yyyy")</span>
+        </small>
+    </header>
+
+    <!-- image -->
+    @if (imageField != null) {
+        if (imageField.MediaParts.Count() > 1) {
+            <div class="owl-carousel text-center controlls-over" data-plugin-options='{"items": 1, "singleItem": true, "navigation": true, "pagination": false, "autoPlay": true, "transitionStyle":"fadeUp"}'>
+                @foreach (var mediapart in imageField.MediaParts) {
+                    <div>
+                        <img src="@mediapart.MediaUrl" class="img-responsive" alt="@mediapart.AlternateText" />
+                    </div>
+                }
+            </div>
+        }
+        else if (imageField.MediaParts.Count() == 1) {
+            <figure>
+                @foreach (var mediapart in imageField.MediaParts) {
+                    <img src="@mediapart.MediaUrl" class="img-responsive" alt="@mediapart.AlternateText" />
+                }
+            </figure>
+        }
+    }
+
+    <!-- article content -->
+    <article>
+        @Display(Model.Summary)
+    </article>
+
+    <hr />
+
+    <!-- SOCIAL -->
+    <p class="socials">
+        <a href="#" class="rounded-icon social fa fa-facebook"><!-- facebook --></a>
+        <a href="#" class="rounded-icon social fa fa-twitter"><!-- twitter --></a>
+        <a href="#" class="rounded-icon social fa fa-google-plus"><!-- google plus --></a>
+        <a href="#" class="rounded-icon social fa fa-pinterest"><!-- pinterest --></a>
+        <a href="#" class="rounded-icon social fa fa-linkedin"><!-- linkedin --></a>
+    </p>
+
+    <!-- TAGS -->
+    @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+        <p class="fsize16">
+            Tags:
+            @Display(Model.Tags)
+        </p>
+    }
+
+    <div class="divider">
+        <!-- divider -->
+        <i class="fa fa-star"></i>
+    </div>
+
+    <!-- COMMENTS -->
+    <div id="comments">
+        @Display(Model.Footer)
+    </div>
+    <!-- /COMMENTS -->
+</div>

@@ -9,7 +9,6 @@
 <div class="pull-right nav signin-dd">
     @if (WorkContext.CurrentUser != null) {
         <a id="quick_sign_in" href="@Url.Action("LogOff", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl })"><span class="hidden-xs"><i class="fa fa-users"></i> @T("Sign Out")</span></a>
-        <a id="quick_sign_in" href="@Url.Action("ChangePassword", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl })"><span class="hidden-xs"><i class="fa fa-lock"></i> @T("Change Password")</span></a>
     }
     else {
         <a id="quick_sign_in" href="#" data-toggle="dropdown"><span class="hidden-xs"><i class="fa fa-users"></i> @T("Sign In")</span></a>

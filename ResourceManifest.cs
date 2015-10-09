@@ -24,7 +24,7 @@ namespace PJS.Atropos {
             manifest.DefineScript("Revslider-Tools").SetUrl("revslider-4.6.4/jquery.themepunch.tools.min.js").SetVersion("4.6.4").SetDependencies("jQuery");
             manifest.DefineScript("Slider-Revolution").SetUrl("revslider-4.6.4/slider_revolution.js").SetDependencies("jQuery");
             manifest.DefineScript("Atropos").SetUrl("scripts.js").SetVersion("1.7").SetDependencies("jQuery");
-            manifest.DefineScript("Custom").SetUrl("custom.js").SetDependencies("jQuery");
+            manifest.DefineScript("Atropos-Custom").SetUrl("atropos-custom.js").SetDependencies("jQuery");
 
             // CORE CSS
             manifest.DefineStyle("Bootstrap").SetUrl("bootstrap-3.3.5/css/bootstrap.min.css", "bootstrap-3.3.5/css/bootstrap.css").SetVersion("3.3.5");
@@ -44,7 +44,8 @@ namespace PJS.Atropos {
             manifest.DefineStyle("Layout").SetUrl("layout.css");
             manifest.DefineStyle("Layout-Dark").SetUrl("layout-dark.css");
             manifest.DefineStyle("Layout-Responsive").SetUrl("layout-responsive.css");
-            manifest.DefineStyle("Atropos-Custom").SetUrl("custom.css");
+            manifest.DefineStyle("Atropos-Blog").SetUrl("atropos-blog.css");
+            manifest.DefineStyle("Atropos-Custom").SetUrl("atropos-custom.css");
         }
     }
 }

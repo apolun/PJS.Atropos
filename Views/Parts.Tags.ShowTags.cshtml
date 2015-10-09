@@ -1,0 +1,13 @@
+﻿@{
+    var tagsHtml = new List<IHtmlString>();
+    foreach (var t in Model.Tags) {
+        if (tagsHtml.Any()) {
+            tagsHtml.Add(new HtmlString(", "));
+        }
+        tagsHtml.Add(new HtmlString("<a href=\"" + Url.Action("Search", new { Controller = "Home", Area = "Orchard.Tags", tagName = (string)t.TagName }) + "\" class=\"label label-default light\"><i class=\"fa fa-dot-circle-o\"></i> " + (string)t.TagName + "</a>"));
+    }
+}
+
+@if (tagsHtml.Any()) {
+    foreach (var htmlString in tagsHtml) { @htmlString }
+}
