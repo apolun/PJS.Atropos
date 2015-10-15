@@ -37,3 +37,6 @@ aside .widget { margin-bottom: 70px; }
         .toggle .toggleta i.toggle-closed { display: none; }
         .toggle .toggleta i.toggle-open { display: block; }
     .toggle .togglec { display: block; position: relative; padding-left: 24px; }
+
+/* adding yelp hover color */
+a.social.fa-yelp:hover { background: #c41200 !important; color: #fff !important; }

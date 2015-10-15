@@ -8,21 +8,22 @@
 <header id="topHead" class="fixed @(settings.HeaderStyle == "4" ? "color" : string.Empty)">
     <div class="container">
         <span class="quick-contact pull-left">
-            <i class="fa fa-phone"></i> 800-555-1234 •
-            <a href="mailto:mail@yourdomain.com">mail@yourdomain.com</a>
+            <i class="fa fa-phone"></i> 916-858-1185 •
+            <a href="mailto:contact@finelinetrim.com">contact@finelinetrim.com</a>
         </span>
 
         <div class="pull-right socials">
-            <a href="#" class="pull-left social fa fa-facebook"></a>
-            <a href="#" class="pull-left social fa fa-twitter"></a>
-            <a href="#" class="pull-left social fa fa-google-plus"></a>
+            <a href="http://www.linkedin.com/company/3313002" class="pull-left social fa fa-linkedin"></a>
+            <a href="http://www.facebook.com/finelinetrim" class="pull-left social fa fa-facebook"></a>
+            <a href="https://plus.google.com/117058458120963111085" class="pull-left social fa fa-google-plus"></a>
+            <a href="http://www.yelp.com/biz/fine-line-trim-and-upholstery-rancho-cordova-2" class="pull-left social fa fa-yelp"></a>
         </div>
 
         @if (settings.HeaderStyle == "3") {
             @Display.NavLogon();
             <div class="pull-right nav hidden-xs">
-                <a href="#"><i class="fa fa-angle-right"></i> About Us</a>
-                <a href="#"><i class="fa fa-angle-right"></i> Contact Us</a>
+                <a href="@Href("~/our-story")"><i class="fa fa-angle-right"></i> Our Story</a>
+                <a href="@Href("~/contact")"><i class="fa fa-angle-right"></i> Contact Us</a>
             </div>
         }
     </div>

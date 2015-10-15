@@ -133,9 +133,6 @@
 <!-- /WRAPPER -->
 <!-- FOOTER -->
 <footer>
-    @if (Model.Footer != null) {
-        @Zone(Model.Footer)
-    }
     @if (Model.FooterQuadFirst != null || Model.FooterQuadSecond != null || Model.FooterQuadThird != null || Model.FooterQuadFourth != null) {
         <div class="footer-content">
             <div class="container">
@@ -163,6 +160,9 @@
                 </div>
             </div>
         </div>
+    }
+    @if (Model.Footer != null) {
+        @Zone(Model.Footer)
     }
 </footer>
 <!-- /FOOTER -->
