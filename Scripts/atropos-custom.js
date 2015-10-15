@@ -24,4 +24,28 @@
     // pagination
     $('#pagination ul').removeClass('pager').addClass('pagination');
     $('#pager-current').parent('li').addClass('active');
+
+    // toggle for archive
+    var $toggle = $('.toggle');
+    if ($toggle.length > 0) {
+        $toggle.each(function () {
+            var element = $(this),
+                elementState = element.attr('data-state');
+
+            if (elementState != 'open') {
+                element.find('.togglec').hide();
+            } else {
+                element.find('.togglet').addClass("toggleta");
+            }
+
+            element.find('.togglet').click(function () {
+                $(this).toggleClass('toggleta').next('.togglec').slideToggle(300);
+                return true;
+            });
+        });
+    }
+
+    // blog timeline
+    $('.blog-timeline ul.blog-posts li:odd > .timeline-item').addClass('pull-right');
+    $('.blog-timeline ul.blog-posts li:even > .timeline-item').addClass('pull-left');
 });

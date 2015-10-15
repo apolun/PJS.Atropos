@@ -1,0 +1,20 @@
+@using Orchard.Blogs.Extensions;
+@using Orchard.Blogs.Models;
+
+@{
+    var dateTimeLocalization = WorkContext.Resolve<Orchard.Localization.Services.IDateTimeFormatProvider>();
+    var monthNames = dateTimeLocalization.MonthNames.ToArray();
+    Model.ContentItems.Classes.Add("archives-list");
+
+    WorkContext.Layout.BeforeMain.Add(New.Parts_Title(Title: T("Archive").Text + "|" + (string)(Model.ArchiveData.Month > 0 ? monthNames[Model.ArchiveData.Month - 1] : null) + (string)(Model.ArchiveData.Day > 0 ? " " + Model.ArchiveData.Day.ToString() + "," : null) + " " + (string)Model.ArchiveData.Year.ToString()), "0");
+}
+
+<div class="archive-trail">
+    <em>
+        @T("Archive:")
+        <strong>@Html.Link((string)Model.ArchiveData.Year.ToString(), Url.BlogArchiveYear((BlogPart)Model.Blog, (int)Model.ArchiveData.Year))</strong>
+        @(new MvcHtmlString(Model.ArchiveData.Month > 0 ? string.Format(" / <strong>{0}</strong>", Html.Link(monthNames[Model.ArchiveData.Month - 1], Url.BlogArchiveMonth((BlogPart)Model.Blog, (int)Model.ArchiveData.Year, (int)Model.ArchiveData.Month))) : ""))
+        @(new MvcHtmlString(Model.ArchiveData.Day > 0 ? string.Format(" / <strong>{0}</strong>", Html.Link((string)Model.ArchiveData.Day.ToString(), Url.BlogArchiveDay((BlogPart)Model.Blog, (int)Model.ArchiveData.Year, (int)Model.ArchiveData.Month, (int)Model.ArchiveData.Day))) : ""))
+    </em>
+</div>
+@Display(Model.ContentItems)

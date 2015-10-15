@@ -1,0 +1,7 @@
+﻿@model Orchard.Tags.ViewModels.TagsIndexViewModel
+
+@{
+    WorkContext.Layout.BeforeMain.Add(New.Parts_Title(Title: T("Tags")), "0");
+}
+
+@Html.UnorderedList(Model.Tags, (t, i) => Html.ActionLink(t.TagName, "Search", new { tagName = t.TagName }, new { @class = "" /* todo: (heskew) classify according to tag use */ }), "list-icon check color circle")
