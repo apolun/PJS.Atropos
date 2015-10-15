@@ -1,0 +1,74 @@
+﻿<table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+    <tbody>
+        <tr>
+            <td width="100%" style="text-align:center;">
+                @T("Thank you for registering with {0}.<br /><br /><br /><b>Final Step</b><br />To verify that you own this e-mail address, please click the link below", Model.RegisteredWebsite)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Space -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+    <tbody>
+        <tr>
+            <td width="100%" height="20"></td>
+        </tr>
+    </tbody>
+</table>
+<!-- /Space -->
+<!-- button -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+    <tbody>
+        <tr>
+            <td width="100%" style="text-align:center;">
+                <a href="@Model.ChallengeUrl" style="text-decoration:none; font-family: helvetica, Arial, sans-serif; font-size: 12px; letter-spacing: 0px; text-align: center; text-transform: uppercase; padding:10px; color:#ffffff; background-color:#F07057; border-radius:6px;">
+                    @T("VERIFY")
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!-- button -->
+<!-- Space -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+    <tbody>
+        <tr>
+            <td width="100%" height="20"></td>
+        </tr>
+    </tbody>
+</table>
+<!-- /Space -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+    <tbody>
+        <tr>
+            <td width="100%" style="text-align:center;">
+                @T("If clicking on the link above does not work, try the following:<br /><br />Select and copy the entire link below.<br />Open a browser window and paste the link in the address bar.<br />Click <b>Go</b> or, on your keyboard, press <b>Enter</b> or <b>Return</b>.<br /><br />{0}", Model.ChallengeUrl)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@if (!String.IsNullOrWhiteSpace(Model.ContactEmail)) {
+    <!-- Space -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+        <tbody>
+            <tr>
+                <td width="100%" height="20"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- /Space -->
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+        <tbody>
+            <tr>
+                <td width="100%" style="text-align:center;">
+                    @T("If you continue to have access problems or want to report other issues, please <a href=\"mailto:{0}\">Contact Us</a>.", Model.ContactEmail)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+}

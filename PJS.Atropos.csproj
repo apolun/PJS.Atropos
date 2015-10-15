@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets.json" />
+    <Content Include="Content\email_template\social_icon1.png" />
+    <Content Include="Content\email_template\social_icon2.png" />
+    <Content Include="Content\email_template\social_icon3.png" />
+    <Content Include="Content\email_template\social_icon4.png" />
     <Content Include="Content\header_shadow.png" />
     <Content Include="Content\icons\android-chrome-144x144.png" />
     <Content Include="Content\icons\android-chrome-192x192.png" />
@@ -489,6 +493,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Parts.Blogs.BlogPost.List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts-FooterQuadSecond.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts-FooterQuadFourth.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts-FooterQuadThird.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.Wrapper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.LostPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.Validated.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.Moderated.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
