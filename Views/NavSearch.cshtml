@@ -1,0 +1,19 @@
+﻿@using Orchard.Search.ViewModels;
+
+@{
+    var searchText = new SearchViewModel();
+    if (Model.ViewModel != null) {
+        searchText = (SearchViewModel)Model.ViewModel;
+    }
+}
+
+<li class="search">
+    <!-- search form -->
+    @using (Html.BeginForm("index", "search", new { area = "Orchard.Search" }, FormMethod.Get, new { @class = "input-group pull-right" })) {
+        @Html.TextBox("q", searchText.Query, new { @class = "form-control", placeholder = "Search" })
+        <span class="input-group-btn">
+            <button class="btn btn-primary notransition"><i class="fa fa-search"></i></button>
+        </span>
+    }
+    <!-- /search form -->
+</li>

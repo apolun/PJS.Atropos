@@ -1,0 +1,39 @@
+﻿@using Orchard.Search.ViewModels;
+
+@{
+    var searchText = new SearchViewModel();
+    if (Model.ViewModel != null) {
+        searchText = (SearchViewModel)Model.ViewModel;
+    }
+
+    WorkContext.Layout.BeforeMain.Add(New.Parts_Title(Title: T("Page Not Found")), "0");
+}
+
+<div class="row">
+    <div class="col-md-9">
+        <h2>
+            <strong>@T("Oops")</strong>, @T("This Page Could Not Be Found!")
+            <span class="subtitle">@T("We're sorry, but the page you were looking for doesn't exist.")</span>
+        </h2>
+        <div class="e404">404</div>
+    </div>
+    <aside class="col-md-3">
+        <h3>@T("SEARCH THE WEBSITE!")</h3>
+        <div class="row">
+            <div class="col-md-12">
+                @using (Html.BeginForm("index", "search", new { area = "Orchard.Search" }, FormMethod.Get, new { @class = "input-group" })) {
+                    @Html.TextBox("q", searchText.Query, new { @class = "form-control", placeholder = T("search...") })
+                    @Html.Hidden("culture", WorkContext.CurrentCulture)
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </span>
+                }
+            </div>
+        </div>
+
+        <h4>@T("USEFUL LINKS")</h4>
+        <ul class="nav nav-list">
+            <li><a href="@Href("~/")"><i class="fa fa-circle-o"></i> @T("Home")</a></li>
+        </ul>
+    </aside>
+</div>

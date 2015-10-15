@@ -1,0 +1,9 @@
+﻿@using Orchard.Search.ViewModels;
+
+@using (Html.BeginForm("index", "search", new { area = "Orchard.Search" }, FormMethod.Get, new { @class = "input-group" })) {
+    @Html.TextBox("q", (SearchViewModel)Model.ViewModel.Query, new { @class = "form-control", placeholder = "search..." })
+    @Html.Hidden("culture", WorkContext.CurrentCulture)
+    <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+    </span>
+}

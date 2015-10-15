@@ -1,0 +1,47 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.UI.Resources;
+@using PJS.Atropos.Models;
+
+@{
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+
+    SetMeta(new MetaEntry { Name = "viewport", Content = "width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" });
+    SetMeta(httpEquiv: "X-UA-Compatible", content: "IE=edge,chrome=1");
+
+    Style.Include("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800");
+
+    <!-- CORE CSS -->
+    Style.Require("Bootstrap");
+    Style.Require("Font-Awesome");
+    Style.Require("Magnific-Popup");
+    Style.Require("Animate");
+    
+    <!-- THEME CSS -->
+    Style.Require("Essentials");
+    Style.Require("Layout");
+    Style.Require("Layout-Responsive");
+    Style.Include("colors/" + settings.Color + ".css");
+    if (settings.Skin == "dark") {
+        Style.Require("Layout-Dark");
+    }
+    Style.Require("Atropos-Custom");
+
+    <!-- MODERNIZR -->
+    Script.Require("Modernizr").AtHead();
+    
+    <!-- JAVASCRIPT FILES -->
+    Script.Require("jQuery");
+    Script.Require("jQuery-Easing");
+    Script.Require("jQuery-Cookie");
+    Script.Require("jQuery-Appear");
+    Script.Require("Isotope");
+    Script.Require("Masonry");
+    Script.Require("Bootstrap");
+    Script.Require("Magnific-Popup");
+    Script.Require("Stellar");
+    Script.Require("jQuery-Knob");
+    Script.Require("Backstretch");
+    Script.Require("Media-Element");
+    Script.Require("Atropos");
+    Script.Require("Atropos-Custom");
+}

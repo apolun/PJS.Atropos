@@ -1,0 +1,10 @@
+﻿@model Orchard.Tags.ViewModels.TagsSearchViewModel
+
+@{
+    Model.List.Classes.Add("tagged-posts");
+
+    WorkContext.Layout.BeforeMain.Add(New.Parts_Title(Title: T("Tag Archive|{0}", Model.TagName)), "0");
+}
+
+@Display(Model.List)
+@Display(Model.Pager)

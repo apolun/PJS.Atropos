@@ -1,0 +1,82 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.MediaLibrary.Fields
+@using Orchard.Tags.ViewModels
+@using PJS.Atropos.Models;
+
+@{
+    Style.Require("Atropos-Blog");
+    Style.Require("Owl-Carousel");
+    Style.Require("Owl-Theme");
+    Style.Require("Owl-Transitions");
+    Script.Require("Owl-Carousel");
+
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+    var blogPost = Model.ContentItem;
+    var imageField = blogPost.BlogPostPart.BlogPostMedia as MediaLibraryPickerField;
+}
+
+@if (settings.BlogStyle == "standard") {
+    <!-- blog item -->
+    <div class="item">
+        <!-- article title -->
+        <div class="item-title">
+            <h2><a href="@Url.ItemDisplayUrl((IContent)blogPost)">@blogPost.TitlePart.Title</a></h2>
+            @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+                @Display(Model.Tags)
+            }
+            <a href="@Url.ItemDisplayUrl((IContent)blogPost)#comments" class="label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
+            <span class="label label-default light">@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMMM d, yyyy")</span>
+        </div>
+
+        @Display(Model.Media)
+
+        <!-- blog short preview -->
+        @Display(Model.Summary)
+    </div>
+    <!-- /blog item -->
+}
+else if (settings.BlogStyle == "timeline") {
+    <article class="timeline-item">
+        <div class="item-date">
+            @blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("dd") <span>@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMM")</span>
+        </div>
+        <div class="item">
+            <!-- article title -->
+            <div class="item-title">
+                <h2><a href="@Url.ItemDisplayUrl((IContent)blogPost)">@blogPost.TitlePart.Title</a></h2>
+                @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+                    @Display(Model.Tags)
+                }
+                <a href="@Url.ItemDisplayUrl((IContent)blogPost)#comments" class="label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
+                <span class="label label-default light">@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMMM d, yyyy")</span>
+            </div>
+
+            @Display(Model.Media)
+
+            <!-- blog short preview -->
+            @Display(Model.Summary)
+        </div>
+    </article>
+}
+else if (settings.BlogStyle == "masonry") {
+    Script.Require("Masonry");
+    
+    <!-- blog item -->
+    <div class="item">
+        <!-- article title -->
+        <div class="item-title">
+            <h2><a href="@Url.ItemDisplayUrl((IContent)blogPost)">@blogPost.TitlePart.Title</a></h2>
+            @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+                @Display(Model.Tags)
+            }
+            <a href="@Url.ItemDisplayUrl((IContent)blogPost)#comments" class="label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
+            <span class="label label-default light">@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMMM d, yyyy")</span>
+        </div>
+
+        @Display(Model.Media)
+
+        <!-- blog short preview -->
+        @Display(Model.Summary)
+    </div>
+    <!-- /blog item -->
+}

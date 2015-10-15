@@ -1,0 +1,65 @@
+﻿@using Orchard.ContentManagement
+
+@{
+    var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
+
+    WorkContext.Layout.BeforeMain.Add(New.Parts_Title(Title: T("Sign In")), "0");
+}
+
+@if (Model.Title == "Access Denied") {
+    <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <i class="fa fa-times-circle"></i>&nbsp;&nbsp;@T("You do not have permission to complete your request.")
+    </div>
+}
+@if (Html.ValidationSummary() != null) {
+    <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <i class="fa fa-times-circle"></i>&nbsp;&nbsp;@T("Login was unsuccessful. Please correct the errors and try again.")
+        <p>@Html.ValidationSummary()</p>
+    </div>
+}
+
+<div class="row">
+    <!-- LOGIN -->
+    <div class="col-md-6 col-md-offset-3">
+        <h2>@Html.TitleForPage("Sign In")</h2>
+        @using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }), FormMethod.Post, new { @class = "white-row" })) {
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="username-email">@T("Username or email")</label>
+                        @Html.TextBox("userNameOrEmail", "", new { id = "username-email", @class = "form-control", autofocus = "autofocus" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="password">@T("Password")</label>
+                        @Html.Password("password", "", new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="remember-box checkbox">
+                        <label for="rememberme">
+                            @Html.CheckBox("rememberMe", new { id = "remember-me" }) @("Remember Me")
+                        </label>
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" value="@T("Sign In")" class="btn btn-primary pull-right" data-loading-text="Loading...">
+                </div>
+            </div>
+            <hr class="half-margins" />
+            <p>
+                @T("Don't have an account yet?")
+                @Html.ActionLink(T("Click to create one").Text, "Register", new { ReturnUrl = Request.QueryString["ReturnUrl"] })
+            </p>
+        }
+    </div>
+    <!-- /LOGIN -->
+</div>

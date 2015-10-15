@@ -1,0 +1,23 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.Utility.Extensions;
+@using PJS.Atropos.Models;
+
+@{
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+
+    if (settings.BlogStyle == "timeline") {
+        Model.Classes.Add("blog-timeline");
+    }
+    else if (settings.BlogStyle == "masonry") {
+        if (WorkContext.Layout.AsideFirst != null || WorkContext.Layout.AsideSecond != null) {
+            Model.Classes.Add("masonry-sidebar");
+        }
+    }
+    var tag = Tag(Model, "div");
+}
+
+<div id="blog">
+    @tag.StartElement
+    @Display(Model.Content)
+    @tag.EndElement
+</div>

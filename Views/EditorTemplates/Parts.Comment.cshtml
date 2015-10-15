@@ -1,0 +1,43 @@
+﻿@model Orchard.Comments.Models.CommentPart
+
+@if (WorkContext.CurrentUser == null) {
+    <div class="row">
+        <!-- name -->
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.Author, T("Name *"))
+            @Html.TextBoxFor(m => m.Author, new { @class = "form-control input-lg" })
+        </div>
+
+        <!-- email -->
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.Email, T("Email *"))
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg" })
+        </div>
+
+        <!-- website -->
+        <div class="col-md-4">
+            @Html.LabelFor(m => m.SiteName, T("Website"))
+            @Html.TextBoxFor(m => m.SiteName, new { @class = "form-control input-lg" })
+        </div>
+    </div>
+}
+else {
+    @Html.Hidden("Name", WorkContext.CurrentUser.UserName ?? "")
+    @Html.Hidden("Email", WorkContext.CurrentUser.Email ?? "")
+}
+
+<div class="row">
+    <!-- comment -->
+    <div class="col-md-12">
+        @Html.TextAreaFor(m => m.CommentText, new { rows = 5, @class = "form-control input-lg", placeholder = "Your Comment *" })
+        @Html.HiddenFor(m => m.CommentedOn)
+        @Html.HiddenFor(m => m.RepliedOn)
+    </div><br />
+
+    <!-- btn -->
+    <div class="col-md-12">
+        <p>
+            <button class="btn btn-primary">Post Comment</button>
+        </p>
+    </div>
+</div>

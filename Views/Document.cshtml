@@ -1,0 +1,81 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.Localization
+@using Orchard.Mvc.Html;
+@using Orchard.UI.Resources;
+@using PJS.Atropos.Models;
+
+@{
+    var theme = WorkContext.CurrentTheme;
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+
+    string title = Convert.ToString(Model.Title);
+    string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+    bool isRtl = WorkContext.CurrentCultureInfo().TextInfo.IsRightToLeft;
+    Html.AddPageClassNames("dir-" + (isRtl ? "rtl" : "ltr"));
+    Html.AddPageClassNames("theme-" + WorkContext.CurrentTheme.Id);
+
+    var bodyClass = string.Empty;
+
+    if (settings.LayoutStyle == "boxed") {
+        bodyClass = "boxed ";
+        if (settings.Background.StartsWith("pattern")) {
+            bodyClass += settings.Background;
+        }
+        else if (settings.Background != "none") {
+            bodyClass += "transparent";
+        }
+    }
+    else {
+        bodyClass = "transparent";
+    }
+
+    var background = string.Empty;
+
+    if (settings.Background.StartsWith("img")) {
+        background = Url.Content(theme.Location + "/" + theme.Path + "/Content/patterns/" + settings.Background + ".jpg");
+    }
+
+    Display.Resources();
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]>
+    <html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage() ie ie8" dir="@(isRtl?"rtl":"ltr")">
+<![endif]-->
+<!--[if IE 9]>
+    <html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage() ie ie9" dir="@(isRtl?"rtl":"ltr")">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="@WorkContext.CurrentCulture" class="@Html.ClassForPage()" dir="@(isRtl?"rtl":"ltr")">
+<!--<![endif]-->
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-57x57.png")">
+    <link rel="apple-touch-icon" sizes="60x60" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-60x60.png")">
+    <link rel="apple-touch-icon" sizes="72x72" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-72x72.png")">
+    <link rel="apple-touch-icon" sizes="76x76" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-76x76.png")">
+    <link rel="apple-touch-icon" sizes="114x114" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-114x114.png")">
+    <link rel="apple-touch-icon" sizes="120x120" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-120x120.png")">
+    <link rel="apple-touch-icon" sizes="144x144" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-144x144.png")">
+    <link rel="apple-touch-icon" sizes="152x152" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-152x152.png")">
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "apple-touch-icon-180x180.png")">
+    <link rel="icon" type="image/png" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "android-chrome-192x192.png")" sizes="192x192">
+    <link rel="icon" type="image/png" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "favicon-96x96.png")" sizes="96x96">
+    <link rel="icon" type="image/png" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "manifest.json")">
+    <link rel="shortcut icon" href="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "favicon.ico")">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "mstile-144x144.png")">
+    <meta name="msapplication-config" content="@Url.Content(theme.Location + "/" + theme.Path + "/Content/icons/" + "browserconfig.xml")">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="utf-8" />
+    <title>@Html.Title(title, siteName)</title>
+    @Display(Model.Head)
+    <script>(function(d){d.className="dyn"+d.className.substring(6,d.className.length);})(document.documentElement);</script>
+    <script>window.isRTL = @(isRtl.ToString().ToLowerInvariant());</script>
+</head>
+<body class="@bodyClass" data-background="@background">
+    @Display(Model.Body)
+    @Display(Model.Tail)
+</body>
+</html>

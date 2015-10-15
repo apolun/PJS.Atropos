@@ -1,0 +1,29 @@
+﻿@using Orchard.Comments.Models
+@using Orchard.ContentManagement
+@using Orchard.Users.Models
+@using PJS.Atropos.Gravatar
+@using PJS.Atropos.Gravatar.Html
+
+@{
+    CommentPart comment = Model.ContentPart;
+    string gravatarEmail = string.Empty;
+
+    if (String.IsNullOrWhiteSpace(comment.UserName)) {
+        gravatarEmail = comment.Email;
+    }
+    else {
+        var cm = WorkContext.Resolve<IContentManager>();
+        var user = cm.Query<UserPart, UserPartRecord>().Where(x => x.NormalizedUserName == comment.UserName).List().FirstOrDefault();
+
+        if (user != null) {
+            gravatarEmail = user.Email;
+        }
+    }
+
+    var gravatarUrl = Url.Gravatar(string.IsNullOrWhiteSpace(gravatarEmail) ? "dummy@foobar.com" : gravatarEmail, 64, "mm", Rating.G);
+}
+
+<!-- user-avatar -->
+<span class="user-avatar">
+    <img class="pull-left media-object" src="@gravatarUrl" width="64" height="64" alt="@T("Gravatar Image")">
+</span>

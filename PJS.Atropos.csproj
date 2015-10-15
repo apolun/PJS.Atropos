@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43B32BB6-DD20-43E6-B50B-B41E4B2E7706}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PJS.Atropos</RootNamespace>
+    <AssemblyName>PJS.Atropos</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\OrchardBasicCorrectness.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\aspnetmvc\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets.json" />
+    <Content Include="Content\email_template\social_icon1.png" />
+    <Content Include="Content\email_template\social_icon2.png" />
+    <Content Include="Content\email_template\social_icon3.png" />
+    <Content Include="Content\email_template\social_icon4.png" />
+    <Content Include="Content\header_shadow.png" />
+    <Content Include="Content\icons\android-chrome-144x144.png" />
+    <Content Include="Content\icons\android-chrome-192x192.png" />
+    <Content Include="Content\icons\android-chrome-36x36.png" />
+    <Content Include="Content\icons\android-chrome-48x48.png" />
+    <Content Include="Content\icons\android-chrome-72x72.png" />
+    <Content Include="Content\icons\android-chrome-96x96.png" />
+    <Content Include="Content\icons\apple-touch-icon-114x114.png" />
+    <Content Include="Content\icons\apple-touch-icon-120x120.png" />
+    <Content Include="Content\icons\apple-touch-icon-144x144.png" />
+    <Content Include="Content\icons\apple-touch-icon-152x152.png" />
+    <Content Include="Content\icons\apple-touch-icon-180x180.png" />
+    <Content Include="Content\icons\apple-touch-icon-57x57.png" />
+    <Content Include="Content\icons\apple-touch-icon-60x60.png" />
+    <Content Include="Content\icons\apple-touch-icon-72x72.png" />
+    <Content Include="Content\icons\apple-touch-icon-76x76.png" />
+    <Content Include="Content\icons\apple-touch-icon-precomposed.png" />
+    <Content Include="Content\icons\apple-touch-icon.png" />
+    <Content Include="Content\icons\browserconfig.xml" />
+    <Content Include="Content\icons\favicon-16x16.png" />
+    <Content Include="Content\icons\favicon-32x32.png" />
+    <Content Include="Content\icons\favicon-96x96.png" />
+    <Content Include="Content\icons\favicon.ico" />
+    <Content Include="Content\icons\mstile-144x144.png" />
+    <Content Include="Content\icons\mstile-150x150.png" />
+    <Content Include="Content\icons\mstile-310x150.png" />
+    <Content Include="Content\icons\mstile-310x310.png" />
+    <Content Include="Content\icons\mstile-70x70.png" />
+    <Content Include="Content\logo.png" />
+    <Content Include="Content\logo_dark.png" />
+    <Content Include="Content\patterns\img1.jpg" />
+    <Content Include="Content\patterns\img2.jpg" />
+    <Content Include="Content\patterns\img3.jpg" />
+    <Content Include="Content\patterns\img4.jpg" />
+    <Content Include="Content\patterns\none.jpg" />
+    <Content Include="Content\patterns\pattern1.png" />
+    <Content Include="Content\patterns\pattern10.png" />
+    <Content Include="Content\patterns\pattern2.png" />
+    <Content Include="Content\patterns\pattern3.png" />
+    <Content Include="Content\patterns\pattern4.png" />
+    <Content Include="Content\patterns\pattern5.png" />
+    <Content Include="Content\patterns\pattern6.png" />
+    <Content Include="Content\patterns\pattern7.png" />
+    <Content Include="Content\patterns\pattern8.png" />
+    <Content Include="Content\patterns\pattern9.png" />
+    <Content Include="Content\slider\church_parallax.jpg" />
+    <Content Include="Content\slider\desktop_slider_2.png" />
+    <Content Include="Content\slider\slider7.jpg" />
+    <Content Include="Content\slider\sliderbg.jpg" />
+    <Content Include="Content\slider\slider_run.png" />
+    <Content Include="Scripts\backstretch-2.0.4\jquery.backstretch.min.js" />
+    <Content Include="Scripts\bootstrap-3.3.5\bootstrap.js" />
+    <Content Include="Scripts\bootstrap-3.3.5\bootstrap.min.js" />
+    <Content Include="Scripts\atropos-custom.js" />
+    <Content Include="Scripts\isotope-2.2.2\isotope.pkgd.js" />
+    <Content Include="Scripts\isotope-2.2.2\isotope.pkgd.min.js" />
+    <Content Include="Scripts\jquery-appear\jquery.appear.js" />
+    <Content Include="Scripts\jquery-cookie-1.4.1\jquery.cookie.js" />
+    <Content Include="Scripts\jquery-easing-1.3\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery-knob-1.2.11\jquery.knob.js" />
+    <Content Include="Scripts\jquery-knob-1.2.11\jquery.knob.min.js" />
+    <Content Include="Scripts\magnific-popup-1.0.0\jquery.magnific-popup.js" />
+    <Content Include="Scripts\magnific-popup-1.0.0\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\masonry-3.3.2\masonry.pkgd.js" />
+    <Content Include="Scripts\masonry-3.3.2\masonry.pkgd.min.js" />
+    <Content Include="Scripts\media-element-2.18.1\mediaelement-and-player.js" />
+    <Content Include="Scripts\media-element-2.18.1\mediaelement-and-player.min.js" />
+    <Content Include="Scripts\media-element-2.18.1\mediaelement.js" />
+    <Content Include="Scripts\media-element-2.18.1\mediaelement.min.js" />
+    <Content Include="Scripts\modernizr-2.7.1\modernizr.min.js" />
+    <Content Include="Scripts\owl-carousel-1.3.3\owl.carousel.js" />
+    <Content Include="Scripts\owl-carousel-1.3.3\owl.carousel.min.js" />
+    <Content Include="Scripts\revslider-4.6.4\jquery.themepunch.revolution.min.js" />
+    <Content Include="Scripts\revslider-4.6.4\jquery.themepunch.tools.min.js" />
+    <Content Include="Scripts\revslider-4.6.4\slider_revolution.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\stellar-0.6.2\jquery.stellar.js" />
+    <Content Include="Scripts\stellar-0.6.2\jquery.stellar.min.js" />
+    <Content Include="Scripts\superslides-0.6.3\jquery.superslides.js" />
+    <Content Include="Scripts\superslides-0.6.3\jquery.superslides.min.js" />
+    <Content Include="Styles\animate\animate.css" />
+    <Content Include="Styles\animate\animate.min.css" />
+    <Content Include="Styles\atropos-blog.css" />
+    <Content Include="Styles\bootstrap-3.3.5\css\bootstrap-theme.css" />
+    <Content Include="Styles\bootstrap-3.3.5\css\bootstrap-theme.min.css" />
+    <Content Include="Styles\bootstrap-3.3.5\css\bootstrap.css" />
+    <Content Include="Styles\bootstrap-3.3.5\css\bootstrap.min.css" />
+    <Content Include="Styles\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Styles\colors\blue.css" />
+    <Content Include="Styles\colors\brown.css" />
+    <Content Include="Styles\colors\darkblue.css" />
+    <Content Include="Styles\colors\darkgreen.css" />
+    <Content Include="Styles\colors\green.css" />
+    <Content Include="Styles\colors\lightgrey.css" />
+    <Content Include="Styles\colors\orange.css" />
+    <Content Include="Styles\colors\pink.css" />
+    <Content Include="Styles\colors\red.css" />
+    <Content Include="Styles\colors\yellow.css" />
+    <Content Include="Styles\atropos-custom.css" />
+    <Content Include="Styles\essentials.css" />
+    <Content Include="Styles\font-awesome-4.4.0\css\font-awesome.css" />
+    <Content Include="Styles\font-awesome-4.4.0\css\font-awesome.min.css" />
+    <Content Include="Styles\font-awesome-4.4.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Styles\layout-dark.css" />
+    <Content Include="Styles\layout-responsive.css" />
+    <Content Include="Styles\layout.css" />
+    <Content Include="Styles\magnific-popup-1.0.0\magnific-popup.css" />
+    <Content Include="Styles\media-element-2.18.1\background.png" />
+    <Content Include="Styles\media-element-2.18.1\bigplay.fw.png" />
+    <Content Include="Styles\media-element-2.18.1\bigplay.png" />
+    <Content Include="Styles\media-element-2.18.1\bigplay.svg" />
+    <Content Include="Styles\media-element-2.18.1\controls-ted.png" />
+    <Content Include="Styles\media-element-2.18.1\controls-wmp-bg.png" />
+    <Content Include="Styles\media-element-2.18.1\controls-wmp.png" />
+    <Content Include="Styles\media-element-2.18.1\controls.fw.png" />
+    <Content Include="Styles\media-element-2.18.1\controls.png" />
+    <Content Include="Styles\media-element-2.18.1\controls.svg" />
+    <Content Include="Scripts\media-element-2.18.1\flashmediaelement-cdn.swf" />
+    <Content Include="Scripts\media-element-2.18.1\flashmediaelement-debug.swf" />
+    <Content Include="Scripts\media-element-2.18.1\flashmediaelement.swf" />
+    <Content Include="Styles\media-element-2.18.1\jumpforward.png" />
+    <Content Include="Styles\media-element-2.18.1\loading.gif" />
+    <Content Include="Styles\media-element-2.18.1\mediaelementplayer.css" />
+    <Content Include="Styles\media-element-2.18.1\mediaelementplayer.min.css" />
+    <Content Include="Scripts\media-element-2.18.1\silverlightmediaelement.xap" />
+    <Content Include="Styles\media-element-2.18.1\mejs-skins.css" />
+    <Content Include="Styles\media-element-2.18.1\skipback.png" />
+    <Content Include="Styles\owl-carousel-1.3.3\AjaxLoader.gif" />
+    <Content Include="Styles\owl-carousel-1.3.3\grabbing.png" />
+    <Content Include="Styles\owl-carousel-1.3.3\owl.carousel.css" />
+    <Content Include="Styles\owl-carousel-1.3.3\owl.theme.css" />
+    <Content Include="Styles\owl-carousel-1.3.3\owl.transitions.css" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrowleft.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrowright.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_left.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_left2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_right.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\arrow_right2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\boxed_bgtile.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullet.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullets.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullets2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\bullet_boxed.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\coloredbg.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile_3x3.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile_3x3_white.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\gridtile_white.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\large_left.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\large_right.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\loader.gif" />
+    <Content Include="Styles\revslider-4.6.4\assets\navigdots.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\navigdots_bgtile.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\shadow1.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\shadow2.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\shadow3.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_left.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_left_boxed.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_right.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\small_right_boxed.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\timer.png" />
+    <Content Include="Styles\revslider-4.6.4\assets\transparent.png" />
+    <Content Include="Styles\revslider-4.6.4\css\settings.css" />
+    <Content Include="Styles\revslider-4.6.4\font\revicons.svg" />
+    <Content Include="Styles\revslider-4.6.4\images\gradient\g30.png" />
+    <Content Include="Styles\revslider-4.6.4\images\gradient\g40.png" />
+    <Content Include="Styles\superslides-0.6.3\superslides.css" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\Web.config" />
+    <Content Include="Styles\Web.config" />
+    <Content Include="Content\Web.config" />
+    <Content Include="Theme.txt" />
+    <Content Include="Theme.png" />
+    <Content Include="Placement.info" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
+      <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
+      <Name>Orchard.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Blogs\Orchard.Blogs.csproj">
+      <Project>{63fbd4d9-e1da-4a7b-aa6a-d6074fe50867}</Project>
+      <Name>Orchard.Blogs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Comments\Orchard.Comments.csproj">
+      <Project>{14c049fd-b35b-415a-a824-87f26b26e7fd}</Project>
+      <Name>Orchard.Comments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.MediaLibrary\Orchard.MediaLibrary.csproj">
+      <Project>{73a7688a-5bd3-4f7e-adfa-ce36c5a10e3b}</Project>
+      <Name>Orchard.MediaLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Search\Orchard.Search.csproj">
+      <Project>{4be4eb01-ac56-4048-924e-2ca77f509aba}</Project>
+      <Name>Orchard.Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Tags\Orchard.Tags.csproj">
+      <Project>{5d0f00f0-26c9-4785-ad61-b85710c60eb0}</Project>
+      <Name>Orchard.Tags</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Users\Orchard.Users.csproj">
+      <Project>{79aed36e-abd0-4747-93d3-8722b042454b}</Project>
+      <Name>Orchard.Users</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Modules\Orchard.Widgets\Orchard.Widgets.csproj">
+      <Project>{194d3ccc-1153-474d-8176-fde8d7d0d0bd}</Project>
+      <Name>Orchard.Widgets</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gravatar\Gravatar.cs" />
+    <Compile Include="Gravatar\Gremail.cs" />
+    <Compile Include="Gravatar\Grofile.cs" />
+    <Compile Include="Gravatar\GrofileInfo.cs" />
+    <Compile Include="Gravatar\Html\HtmlHelperExtensions.cs" />
+    <Compile Include="Gravatar\Html\UrlHelperExtensions.cs" />
+    <Compile Include="Handlers\AtroposThemeSettingsPartHandler.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="Models\AtroposThemeSettingsPart.cs" />
+    <Compile Include="ResourceManifest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Resources.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EditorTemplates\Parts\AtroposThemeSettings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\bootstrap-3.3.5\css\bootstrap-theme.css.map" />
+    <Content Include="Styles\bootstrap-3.3.5\css\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Styles\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Styles\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Styles\bootstrap-3.3.5\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\font-awesome-4.4.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Styles\font-awesome-4.4.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Styles\font-awesome-4.4.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Styles\font-awesome-4.4.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Styles\font-awesome-4.4.0\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Document.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\icons\manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Elements\Column.cshtml" />
+    <Content Include="Views\Elements\Grid.cshtml" />
+    <Content Include="Views\Elements\Row.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Insertions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TopBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MenuItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MenuItemLinkdd.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Slider1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\revslider-4.6.4\font\revicons.eot" />
+    <Content Include="Styles\revslider-4.6.4\font\revicons.ttf" />
+    <Content Include="Styles\revslider-4.6.4\font\revicons.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Title.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BadgeOfHonor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Slider2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NavSearch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NavLogon.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LogOn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Message.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Orchard.Users\Account\AccessDenied.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChallengeEmailFail.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChallengeEmailSent.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChallengeEmailSuccess.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\LostPassword.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\RegistrationPending.cshtml" />
+    <Content Include="Views\Orchard.Users\Account\RequestLostPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pager.cshtml" />
+    <Content Include="Views\Pager.CurrentPage.cshtml" />
+    <Content Include="Views\Pager.First.cshtml" />
+    <Content Include="Views\Pager.Gap.cshtml" />
+    <Content Include="Views\Pager.Last.cshtml" />
+    <Content Include="Views\Pager.Next.cshtml" />
+    <Content Include="Views\Pager.Previous.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Content-Blog.Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Content-BlogPost.Summary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Comments.Count.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Tags.ShowTags.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Common.Body.Summary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Content-BlogPost.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.ListOfComments.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Comment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CommentGravatar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CommentReplyButton.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CommentAuthor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CommentMetadata.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.CommentForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EditorTemplates\Parts.Comment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Fields.MediaLibraryPicker-BlogPostPart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Widget.Wrapper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Search.SearchForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\NotFound.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ErrorPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Orchard.Search\Search\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Layout.Summary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.TagCloud.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.BlogArchives.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ListByArchive.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Orchard.Tags\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Orchard.Tags\Home\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts-FooterQuadFirst.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.BlogPost.List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts-FooterQuadSecond.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts-FooterQuadFourth.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.Blogs.RecentBlogPosts-FooterQuadThird.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.Wrapper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.LostPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.Validated.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template.User.Moderated.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" DependsOnTargets="AfterBuildCompiler">
+    <PropertyGroup>
+      <AreasManifestDir>$(ProjectDir)\..\Manifests</AreasManifestDir>
+    </PropertyGroup>
+    <!-- If this is an area child project, uncomment the following line:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Child" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    -->
+    <!-- If this is an area parent project, uncomment the following lines:
+    <CreateAreaManifest AreaName="$(AssemblyName)" AreaType="Parent" AreaPath="$(ProjectDir)" ManifestPath="$(AreasManifestDir)" ContentFiles="@(Content)" />
+    <CopyAreaManifests ManifestPath="$(AreasManifestDir)" CrossCopy="false" RenameViews="true" />
+    -->
+  </Target>
+  <Target Name="AfterBuildCompiler" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45979</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://orchard.codeplex.com</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

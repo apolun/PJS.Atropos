@@ -1,0 +1,48 @@
+<Placement>
+  <Match DisplayType="Detail">
+    <Place Parts_Title="/BeforeMain:0"/>
+  </Match>
+
+  <Match ContentType="Page">
+    <Place Parts_Common_Metadata="-"
+           Parts_Common_Metadata_Summary="-"/>
+  </Match>
+
+  <Match ContentType="Blog">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
+
+  <Match ContentType="BlogPost">
+    <Match DisplayType="Summary">
+      <Place Parts_Common_Body_Summary="Summary:0"
+             Parts_Tags_ShowTags="Tags:0"
+             Fields_MediaLibraryPicker="Media:0"
+             Parts_Comments_Count="CommentsCount:0"
+             Parts_Common_Metadata_Summary="-" />
+    </Match>
+    <Match DisplayType="Detail">
+      <Place Parts_Title="/BeforeMain:0"
+             Parts_Common_Body="Summary:0"
+             Parts_Tags_ShowTags="Tags:0"
+             Fields_MediaLibraryPicker="Media:0"
+             Parts_Comments_Count="CommentsCount:0"
+             Parts_ListOfComments="Footer:1"
+             Parts_CommentForm="Footer:2"
+             Parts_Common_Metadata="-"/>
+    </Match>
+  </Match>
+
+  <Match ContentType="ProjectionPage">
+    <Place Parts_Common_Metadata="-"
+           Parts_Common_Metadata_Summary="-"/>
+  </Match>
+
+  <Match ContentType="Taxonomy">
+    <Place Parts_Common_Metadata="-"
+           Parts_Common_Metadata_Summary="-"/>
+  </Match>
+  
+  <Match Path="~/">
+    <Place Parts_Title="-"/>
+  </Match>
+</Placement>

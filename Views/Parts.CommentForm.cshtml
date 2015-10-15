@@ -1,0 +1,55 @@
+﻿@using Orchard.Comments;
+@using Orchard.Comments.Models
+@using Orchard.Comments.Settings
+@using Orchard.Utility.Extensions;
+
+@{
+    CommentsPart commentsPart = Model.ContentPart;
+    bool canStillCommentOn = Model.CanStillComment;
+    var settings = commentsPart.TypePartDefinition.Settings.GetModel<CommentsPartSettings>();
+    var isAuthorized = AuthorizedFor(Permissions.AddComment, Model.ContentItem);
+}
+
+@if (Html.ValidationSummary() != null) {
+    <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <i class="fa fa-times-circle"></i>&nbsp;&nbsp;@T("Login was unsuccessful. Please correct the errors and try again.")
+        <p>@Html.ValidationSummary()</p>
+    </div>
+}
+
+<h4>
+    Leave a reply
+    <small class="block fsize13 font300">Your email address will not be published.</small>
+</h4>
+
+@if (!Model.ContentPart.CommentsActive || !canStillCommentOn) {
+    if (Model.ContentPart.Comments.Count > 0) {
+        <div class="alert alert-warning">
+            <i class="fa fa-warning"></i>&nbsp;&nbsp;@T("Comments have been disabled for this content.")
+        </div>
+    }
+}
+else if ((settings.MustBeAuthenticated || !isAuthorized) && WorkContext.CurrentUser == null) {
+    <div class="alert alert-warning">
+        <i class="fa fa-warning"></i>&nbsp;&nbsp;@T("You must {0} to comment.", Html.ActionLink(T("sign in").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = string.Format("{0}#comments", Context.Request.RawUrl) }))
+    </div>
+}
+else if (WorkContext.CurrentUser != null && !isAuthorized) {
+    <div class="alert alert-danger">
+        <i class="fa fa-warning"></i>&nbsp;&nbsp;@T("You are not authorized to add a comment.")
+    </div>
+}
+else if (isAuthorized) {
+    <!-- COMMENT FORM -->
+    <span id="comment-form-beacon"></span>
+    using (Html.BeginFormAntiForgeryPost(Url.Action("Create", "Comment", new { Area = "Orchard.Comments", ReturnUrl = Context.Request.ToUrlString() }), FormMethod.Post, new { id = "commentForm", @class = "form-horizontal" })) {
+        if (TempData.ContainsKey("Comments.InvalidCommentEditorShape")) {
+            @Display(TempData["Comments.InvalidCommentEditorShape"]);
+        }
+        else {
+            @Display(Model.EditorShape)
+        }
+    }
+    <!-- /COMMENT FORM -->
+}

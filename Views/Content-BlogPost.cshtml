@@ -1,0 +1,66 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.MediaLibrary.Fields
+@using Orchard.Tags.ViewModels
+@using PJS.Atropos.Models;
+
+@{
+    Style.Require("Atropos-Blog");
+    Style.Require("Owl-Carousel");
+    Style.Require("Owl-Theme");
+    Style.Require("Owl-Transitions");
+    Script.Require("Owl-Carousel");
+
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+    var blogPost = Model.ContentItem;
+}
+
+<div id="blog">
+    <!-- article title -->
+    <header class="blog-post">
+        <h1>@blogPost.TitlePart.Title</h1>
+        <small class="fsize13">
+            @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+                @Display(Model.Tags)
+            }
+            <a href="#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
+            <span class="label label-default light">@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMMM d, yyyy")</span>
+        </small>
+    </header>
+
+    @Display(Model.Media)
+
+    <!-- article content -->
+    <article>
+        @Display(Model.Summary)
+    </article>
+
+    <hr />
+
+    <!-- SOCIAL -->
+    <p class="socials">
+        <a href="http://www.facebook.com/sharer.php?s=100&amp;p[url]=@Request.Url.AbsoluteUri&amp;p[title]=@blogPost.TitlePart.Title" target="_blank" class="rounded-icon social fa fa-facebook"><!-- facebook --></a>
+        <a href="http://twitter.com/home?status=@blogPost.TitlePart.Title @Request.Url.AbsoluteUri" target="_blank" class="rounded-icon social fa fa-twitter"><!-- twitter --></a>
+        <a href="https://plus.google.com/share?url=@Request.Url.AbsoluteUri" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" target="_blank" class="rounded-icon social fa fa-google-plus"><!-- google plus --></a>
+        <a href="https://www.pinterest.com/pin/create/button/?url=@Request.Url.AbsoluteUri&description=@blogPost.TitlePart.Title" target="_blank"  class="rounded-icon social fa fa-pinterest"><!-- pinterest --></a>
+        <a href="http://linkedin.com/shareArticle?mini=true&amp;url=@Request.Url.AbsoluteUri&amp;title=@blogPost.TitlePart.Title" target="_blank" class="rounded-icon social fa fa-linkedin"><!-- linkedin --></a>
+    </p>
+
+    <!-- TAGS -->
+    @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+        <p class="fsize16">
+            Tags:
+            @Display(Model.Tags)
+        </p>
+    }
+
+    <div class="divider">
+        <!-- divider -->
+        <i class="fa fa-star"></i>
+    </div>
+
+    <!-- COMMENTS -->
+    <div id="comments">
+        @Display(Model.Footer)
+    </div>
+    <!-- /COMMENTS -->
+</div>
