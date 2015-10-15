@@ -59,5 +59,24 @@ else if (settings.BlogStyle == "timeline") {
     </article>
 }
 else if (settings.BlogStyle == "masonry") {
+    Script.Require("Masonry");
+    
+    <!-- blog item -->
+    <div class="item">
+        <!-- article title -->
+        <div class="item-title">
+            <h2><a href="@Url.ItemDisplayUrl((IContent)blogPost)">@blogPost.TitlePart.Title</a></h2>
+            @if (Model.Tags.Items.Count > 0 && ((IEnumerable<ShowTagViewModel>)Model.Tags.Items[0].Tags).Any()) {
+                @Display(Model.Tags)
+            }
+            <a href="@Url.ItemDisplayUrl((IContent)blogPost)#comments" class="label label-default light"><i class="fa fa-comment-o"></i> @Display(Model.CommentsCount)</a>
+            <span class="label label-default light">@blogPost.CommonPart.CreatedUtc.ToLocalTime().ToString("MMMM d, yyyy")</span>
+        </div>
 
+        @Display(Model.Media)
+
+        <!-- blog short preview -->
+        @Display(Model.Summary)
+    </div>
+    <!-- /blog item -->
 }

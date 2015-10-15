@@ -1,0 +1,20 @@
+﻿@using Orchard.ContentManagement;
+@using PJS.Atropos.Models;
+
+@{
+    var settings = WorkContext.CurrentSite.As<AtroposThemeSettingsPart>();
+    
+    IEnumerable<object> blogPosts = Model.ContentItems;
+    Model.ContentItems.Classes.Add("blog-posts");
+
+    if (settings.BlogStyle == "masonry") {
+        Model.Classes.Add("masonry-list");
+        Model.ContentItems.ItemClasses.Add("masonry-item");
+    }
+}
+
+@Display(Model.ContentItems)
+
+@if (blogPosts == null || blogPosts.Count() < 1) {
+    <p>@T("There are no posts for this blog.")</p>
+}

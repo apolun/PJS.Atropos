@@ -15,7 +15,7 @@ else {
             DateTime date = post.ContentItem.CommonPart.CreatedUtc;
 
             <li>
-                <a href="@Url.ItemDisplayUrl(contentItem)"><i class="fa fa-sign-out"></i> @title <small>@date</small></a>
+                <a href="@Url.ItemDisplayUrl(contentItem)"><i class="fa fa-sign-out"></i> @title <small>@date.ToLocalTime().ToString("MMMM d, yyyy") by @post.ContentItem.CommonPart.Owner.UserName</small></a>
             </li>
         }
     </ul>
