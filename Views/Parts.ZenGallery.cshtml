@@ -1,0 +1,54 @@
+﻿@using System.Linq;
+@using Orchard.MediaLibrary.Models;
+
+@{
+    var images = (IEnumerable<MediaPart>)Model.Images;
+
+    string categories = string.Empty;
+
+    foreach (var category in images.Where(x => !string.IsNullOrWhiteSpace(x.AlternateText)).Select(x => x.AlternateText)) {
+        categories += category + ",";
+    }
+
+    char[] delimiters = new char[] { ',' };
+    string[] categoryList = categories.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+    var distinctCategories = categoryList.Distinct().OrderBy(x => x).ToArray();
+
+    if (images != null && images.Count() > 0) {
+        var count = images.Count();
+
+        <div id="portfolio">
+            <ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
+                @foreach (var category in distinctCategories) {
+                    <li data-option-value=".@category.Replace(" ", "-")"><a href="#">@category</a></li>
+                }
+            </ul>
+            <div class="row">
+                <ul class="sort-destination isotope" data-sort-id="isotope-list">
+                    @foreach (var img in images) {
+                        <li class="isotope-item col-sm-6 col-md-4 @(string.IsNullOrWhiteSpace(img.AlternateText) ? string.Empty : img.AlternateText.Replace(" ", "-").Replace(",", " "))">
+                            <!-- item -->
+                            <div class="item-box">
+                                <figure>
+                                    <a class="item-hover" href="#">
+                                        <span class="overlay color2"></span>
+                                        <span class="inner">
+                                            <span class="block fa fa-plus fsize20"></span>
+                                            @img.Title
+                                        </span>
+                                    </a>
+                                    <img class="img-responsive" src="@Display.ResizeMediaUrl(Path: img.MediaUrl, Width: 260)" alt="">
+                                </figure>
+                                <div class="item-box-desc">
+                                    <h4>@img.Title</h4>
+                                    <small class="styleColor">@img.Caption</small>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+}

@@ -515,6 +515,9 @@
   <ItemGroup>
     <Content Include="Views\Template.User.Moderated.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.ZenGallery.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
