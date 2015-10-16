@@ -37,7 +37,7 @@
     @Zone(Model.Header)
 }
 <!-- TOP NAV -->
-<header id="topNav" class="topHead">
+<header id="topNav" class="@(settings.HeaderStyle != "1" ? "topHead" : string.Empty)">
     <div class="container">
         <!-- Mobile Menu Button -->
         <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
