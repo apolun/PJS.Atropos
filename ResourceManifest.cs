@@ -23,6 +23,7 @@ namespace PJS.Atropos {
             manifest.DefineScript("Revslider").SetUrl("revslider-4.6.4/jquery.themepunch.revolution.min.js").SetVersion("4.6.4").SetDependencies("jQuery");
             manifest.DefineScript("Revslider-Tools").SetUrl("revslider-4.6.4/jquery.themepunch.tools.min.js").SetVersion("4.6.4").SetDependencies("jQuery");
             manifest.DefineScript("Slider-Revolution").SetUrl("revslider-4.6.4/slider_revolution.js").SetDependencies("jQuery");
+            manifest.DefineScript("Flexslider").SetUrl("flexslider-2.5.0/jquery.flexlider-min.js", "flexslider-2.5.0/jquery.flexslider.js").SetVersion("2.5.0").SetDependencies("jQuery");
             manifest.DefineScript("Atropos").SetUrl("scripts.js").SetVersion("1.7").SetDependencies("jQuery");
             manifest.DefineScript("Atropos-Custom").SetUrl("atropos-custom.js").SetDependencies("jQuery");
 
@@ -35,6 +36,7 @@ namespace PJS.Atropos {
             manifest.DefineStyle("Magnific-Popup").SetUrl("magnific-popup-1.0.0/magnific-popup.css").SetVersion("1.0.0");
             manifest.DefineStyle("Animate").SetUrl("animate/animate.min.css", "animate/animate.css");
             manifest.DefineStyle("Superslides").SetUrl("superslides-0.6.3/superslides.css").SetVersion("0.6.3");
+            manifest.DefineStyle("Flexslider").SetUrl("flexslider-2.5.0/flexslider.css").SetVersion("2.5.0");
 
             // REVOLUTION SLIDER
             manifest.DefineStyle("Revslider").SetUrl("revslider-4.6.4/css/settings.css").SetVersion("4.6.4");

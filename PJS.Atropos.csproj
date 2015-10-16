@@ -128,6 +128,8 @@
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.min.js" />
     <Content Include="Scripts\atropos-custom.js" />
+    <Content Include="Scripts\flexslider-2.5.0\jquery.flexslider-min.js" />
+    <Content Include="Scripts\flexslider-2.5.0\jquery.flexslider.js" />
     <Content Include="Scripts\isotope-1.5.25\jquery.isotope.js" />
     <Content Include="Scripts\jquery-appear\jquery.appear.js" />
     <Content Include="Scripts\jquery-cookie-1.4.1\jquery.cookie.js" />
@@ -173,6 +175,9 @@
     <Content Include="Styles\colors\yellow.css" />
     <Content Include="Styles\atropos-custom.css" />
     <Content Include="Styles\essentials.css" />
+    <Content Include="Styles\flexslider-2.5.0\flexslider.css" />
+    <Content Include="Styles\flexslider-2.5.0\fonts\flexslider-icon.svg" />
+    <Content Include="Styles\flexslider-2.5.0\images\bg_play_pause.png" />
     <Content Include="Styles\font-awesome-4.4.0\css\font-awesome.css" />
     <Content Include="Styles\font-awesome-4.4.0\css\font-awesome.min.css" />
     <Content Include="Styles\font-awesome-4.4.0\fonts\fontawesome-webfont.svg" />
@@ -518,6 +523,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Parts.ZenGallery.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\flexslider-2.5.0\fonts\flexslider-icon.eot" />
+    <Content Include="Styles\flexslider-2.5.0\fonts\flexslider-icon.ttf" />
+    <Content Include="Styles\flexslider-2.5.0\fonts\flexslider-icon.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
