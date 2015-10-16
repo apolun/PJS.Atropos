@@ -20,30 +20,27 @@
 
         <div id="portfolio">
             <ul class="nav nav-pills isotope-filter isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
+                <li data-option-value="*" class="active"><a href="#">Show All</a></li>
                 @foreach (var category in distinctCategories) {
                     <li data-option-value=".@category.Replace(" ", "-")"><a href="#">@category</a></li>
                 }
             </ul>
             <div class="row">
-                <ul class="sort-destination isotope" data-sort-id="isotope-list">
+                <ul class="sort-destination isotope lightbox" data-sort-id="isotope-list" data-plugin-options='{"delegate": "a", "gallery": {"enabled": true}}'>
                     @foreach (var img in images) {
                         <li class="isotope-item col-sm-6 col-md-4 @(string.IsNullOrWhiteSpace(img.AlternateText) ? string.Empty : img.AlternateText.Replace(" ", "-").Replace(",", " "))">
                             <!-- item -->
                             <div class="item-box">
                                 <figure>
-                                    <a class="item-hover" href="#">
+                                    <a class="item-hover" href="@img.MediaUrl">
                                         <span class="overlay color2"></span>
                                         <span class="inner">
                                             <span class="block fa fa-plus fsize20"></span>
-                                            @img.Title
+                                            <strong>VIEW</strong> IMAGE
                                         </span>
                                     </a>
-                                    <img class="img-responsive" src="@Display.ResizeMediaUrl(Path: img.MediaUrl, Width: 260)" alt="">
+                                    <img class="img-responsive" src="@Display.ResizeMediaUrl(Path: img.MediaUrl, Width: 260, Height: 260, Mode: "crop", Alignment: "middlecenter")" alt="">
                                 </figure>
-                                <div class="item-box-desc">
-                                    <h4>@img.Title</h4>
-                                    <small class="styleColor">@img.Caption</small>
-                                </div>
                             </div>
                         </li>
                     }

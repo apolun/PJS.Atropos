@@ -41,6 +41,10 @@
     <Place Parts_Common_Metadata="-"
            Parts_Common_Metadata_Summary="-"/>
   </Match>
+
+  <Match ContentType="ZenGallery">
+    <Place Parts_Common_Metadata="-"/>
+  </Match>
   
   <Match Path="~/">
     <Place Parts_Title="-"/>
