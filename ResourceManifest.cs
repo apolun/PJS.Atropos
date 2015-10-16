@@ -10,7 +10,7 @@ namespace PJS.Atropos {
             manifest.DefineScript("jQuery-Easing").SetUrl("jquery-easing-1.3/jquery.easing.1.3.js").SetVersion("1.3").SetDependencies("jQuery");
             manifest.DefineScript("jQuery-Cookie").SetUrl("jquery-cookie-1.4.1/jquery.cookie.js").SetVersion("1.4.1").SetDependencies("jQuery");
             manifest.DefineScript("jQuery-Appear").SetUrl("jquery-appear/jquery.appear.js").SetDependencies("jQuery");
-            manifest.DefineScript("Isotope").SetUrl("isotope-2.2.2/isotope.pkgd.min.js", "isotope-2.2.2/isotope.pkgd.js").SetVersion("2.2.2").SetDependencies("jQuery");
+            manifest.DefineScript("Isotope").SetUrl("isotope-1.5.25/jquery.isotope.js").SetVersion("1.5.25").SetDependencies("jQuery");
             manifest.DefineScript("Masonry").SetUrl("masonry-3.3.2/masonry.pkgd.min.js", "masonry-3.3.2/masonry.pkgd.js").SetVersion("3.3.2").SetDependencies("jQuery");
             manifest.DefineScript("Bootstrap").SetUrl("bootstrap-3.3.5/bootstrap.min.js", "bootstrap-3.3.5/bootstrap.js").SetVersion("3.3.5").SetDependencies("jQuery");
             manifest.DefineScript("Magnific-Popup").SetUrl("magnific-popup-1.0.0/jquery.magnific-popup.min.js", "magnific-popup-1.0.0/jquery.magnific-popup.js").SetVersion("1.0.0").SetDependencies("jQuery");
