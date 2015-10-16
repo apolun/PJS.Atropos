@@ -102,6 +102,8 @@
     <Content Include="Content\icons\mstile-70x70.png" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\logo_dark.png" />
+    <Content Include="Content\logo_orig.png" />
+    <Content Include="Content\logo_dark_orig.png" />
     <Content Include="Content\patterns\img1.jpg" />
     <Content Include="Content\patterns\img2.jpg" />
     <Content Include="Content\patterns\img3.jpg" />
