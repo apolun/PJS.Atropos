@@ -28,7 +28,7 @@
             <div class="row">
                 <ul class="sort-destination isotope lightbox" data-sort-id="isotope-list" data-plugin-options='{"delegate": "a", "gallery": {"enabled": true}}'>
                     @foreach (var img in images) {
-                        <li class="isotope-item col-sm-6 col-md-4 @(string.IsNullOrWhiteSpace(img.AlternateText) ? string.Empty : img.AlternateText.Replace(" ", "-").Replace(",", " "))">
+                        <li class="isotope-item col-sm-6 col-md-3 @(string.IsNullOrWhiteSpace(img.AlternateText) ? string.Empty : img.AlternateText.Replace(" ", "-").Replace(",", " "))">
                             <!-- item -->
                             <div class="item-box">
                                 <figure>
@@ -39,7 +39,7 @@
                                             <strong>VIEW</strong> IMAGE
                                         </span>
                                     </a>
-                                    <img class="img-responsive" src="@Display.ResizeMediaUrl(Path: img.MediaUrl, Width: 260, Height: 260, Mode: "crop", Alignment: "middlecenter")" alt="">
+                                    <img class="img-responsive" src="@Display.ResizeMediaUrl(Path: img.MediaUrl, Width: 263, Height: 175, Mode: "crop", Alignment: "middlecenter")" alt="">
                                 </figure>
                             </div>
                         </li>
