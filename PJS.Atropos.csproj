@@ -124,6 +124,8 @@
     <Content Include="Content\slider\slider7.jpg" />
     <Content Include="Content\slider\sliderbg.jpg" />
     <Content Include="Content\slider\slider_run.png" />
+    <Content Include="OForm-Contact.html" />
+    <Content Include="Page-Services.html" />
     <Content Include="Scripts\backstretch-2.0.4\jquery.backstretch.min.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.min.js" />

@@ -1,0 +1,100 @@
+﻿<div class="tabs nomargin-top">
+    <!-- tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Concierge</a></li>
+        <li><a href="#tab2" data-toggle="tab">Commercial</a></li>
+        <li><a href="#tab3" data-toggle="tab">Residential</a></li>
+        <li><a href="#tab4" data-toggle="tab">Boats</a></li>
+        <li><a href="#tab5" data-toggle="tab">Auto</a></li>
+        <li><a href="#tab6" data-toggle="tab">Audio</a></li>
+    </ul>
+
+    <!-- tabs content -->
+    <div class="tab-content" style="min-height: 335px;">
+        <div id="tab1" class="tab-pane active">
+            <img src="http://finelinetrim.blob.core.windows.net/media/Default/gallery/boats/Concierge.jpg" align="right" height="300" width="400" />
+            <h6>Fine Line is proud to offer Premium Concierge Service tailored to suit customer needs. If you can dream it, we can do it.</h6>
+            <h6>Concierge services offered include:</h6>
+            <ul>
+                <li>On-site project consultation</li>
+                <li>Pick-up and delivery services</li>
+                <li>End-to-end project managment</li>
+                <li>Express project completion</li>
+                <li>Professional detailing services</li>
+            </ul>
+            <p><strong>Contact us for pricing</strong></p>
+        </div>
+        <div id="tab2" class="tab-pane">
+            <img src="http://finelinetrim.blob.core.windows.net/media/Default/gallery/automotive/5729.JPG" align="right" height="300" width="400" />
+            <h6>Fine Line's commercial portfolio include:</h6>
+            <ul>
+                <li>Custom covers for industrial and equipment applications</li>
+                <li>Custom upholstery for dining and hospitality businesses</li>
+                <li>Custom upholstery for aeronautical applications</li>
+            </ul>
+            <h6>At Fine Line, we offer discounted rates for volume orders. Contact us for more information.</h6>
+        </div>
+        <div id="tab3" class="tab-pane">
+            <img src="http://finelinetrim.blob.core.windows.net/media/Default/gallery/residential/5861.JPG" align="right" height="300" width="400" />
+            <h6>Are you thinking of creating a custom piece of furniture? Or perhaps you just need to repair a torn seat cover on your recliner or chair. Whatever the case, Fine Line's got it covered...literally!</h6>
+            <ul>
+                <li>Visit our website and upload pictures from your PC or smartphone</li>
+                <li>Visit us at our Rancho Cordova facility</li>
+                <li>Call us at (916) 858-1185</li>
+            </ul>
+            <h6>We'll take it from there!</h6>
+        </div>
+        <div id="tab4" class="tab-pane">
+            <img src="http://finelinetrim.blob.core.windows.net/media/Default/gallery/boats/5741.JPG" align="right" height="300" width="400" />
+            <h6>Fine Line offers complete boat/marine interior solutions. Services include:</h6>
+            <ul>
+                <li>Boat cockpit and bow covers</li>
+                <li>Carpet, seats, and panel replacement</li>
+                <li>Canvas tops</li>
+                <li>Custom bimini tops</li>
+                <li>Custom tops and frames</li>
+                <li>Complete interior solutions</li>
+            </ul>
+        </div>
+        <div id="tab5" class="tab-pane">
+            <img src="http://finelinetrim.blob.core.windows.net/media/Default/gallery/automotive/018.JPG" align="right" height="300" width="400" />
+            <h6>Fine Line offers a full-range of custom automotive interior solutions. Services include:</h6>
+            <ul>
+                <li>Convertible top replacement using high-quality vinyl or cloth</li>
+                <li>Custom door and interior trim panels</li>
+                <li>Headliners and sun visors</li>
+                <li>Custom steering wheel covers</li>
+                <li>Carpet replacement and sound deadenning</li>
+                <li>Complete audio/video solutions</li>
+            </ul>
+        </div>
+        <div id="tab6" class="tab-pane">
+            <img src="http://finelinetrim.blob.core.windows.net/media/Default/gallery/audio/019.JPG" align="right" height="300" width="400" />
+            <h6>Fine Line offers a full-range of custom audio and alarm installation solutions. Services include:</h6>
+            <ul>
+                <li>Custom Audio and Alarm Installations</li>
+                <li>Custom Audio System Design and Consultation</li>
+                <li>Custom Speaker and Subwoofer Enclosures</li>
+                <li>Custom Lighting Solutions (RGB and LED)</li>
+                <li>Sound deadenning</li>
+                <li>Fiberglass Fabrication</li>
+                <li>Alarm Installations</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    // <![CDATA[
+    function getURLParameter(name) {
+        return decodeURI(
+            (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1]
+        );
+    }
+
+    $(function () {
+        var tab = getURLParameter('tab');
+        $('#' + tab + 'link').tab('show');
+    });
+    // ]]>
+</script>

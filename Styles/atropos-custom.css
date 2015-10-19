@@ -40,3 +40,8 @@ aside .widget { margin-bottom: 70px; }
 
 /* adding yelp hover color */
 a.social.fa-yelp:hover { background: #c41200 !important; color: #fff !important; }
+
+/* flexslider */
+.flexslider { border: 2px solid #da4f49; }
+    .flexslider ul.slides > li { border: 1px solid #da4f49; }
+.flex-direction-nav a { overflow: visible; }
