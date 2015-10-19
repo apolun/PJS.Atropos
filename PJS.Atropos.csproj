@@ -126,8 +126,7 @@
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.js" />
     <Content Include="Scripts\bootstrap-3.3.5\bootstrap.min.js" />
     <Content Include="Scripts\atropos-custom.js" />
-    <Content Include="Scripts\isotope-2.2.2\isotope.pkgd.js" />
-    <Content Include="Scripts\isotope-2.2.2\isotope.pkgd.min.js" />
+    <Content Include="Scripts\isotope-1.5.25\jquery.isotope.js" />
     <Content Include="Scripts\jquery-appear\jquery.appear.js" />
     <Content Include="Scripts\jquery-cookie-1.4.1\jquery.cookie.js" />
     <Content Include="Scripts\jquery-easing-1.3\jquery.easing.1.3.js" />
@@ -514,6 +513,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Template.User.Moderated.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.ZenGallery.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
